@@ -13,7 +13,7 @@ interface IPCard {
 
 export default function PCard({background, image, title, description}: IPCard) {
   return (
-    <Card elevation={0} sx={{ maxWidth: 400, background, borderRadius: "1.66rem"}}>
+    <Card  elevation={0} sx={{ maxWidth: 400, background, borderRadius: "1.66rem"}}>
       <CardMedia
         sx={{ height: 300 }}
         image={image}
