@@ -1,23 +1,101 @@
 import * as React from 'react';
-import Link from '@mui/material/Link';
-import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
+import { Box, Stack, Button, Container, Grid } from '@mui/material';
+import PCard from './PCard';
 
-function LightBulbIcon(props: SvgIconProps) {
-  return (
-    <SvgIcon {...props}>
-      <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z" />
-    </SvgIcon>
-  );
-}
 
-export default function ProTip() {
+
+export default function HeroSection() {
   return (
-    <Typography sx={{ mt: 6, mb: 3, color: 'text.secondary' }}>
-      <LightBulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-      {'Pro tip: See more '}
-      <Link href="https://mui.com/material-ui/getting-started/templates/">templates</Link>
-      {' in the Material UI documentation.'}
-    </Typography>
+    <>
+      <Box
+        sx={{
+          my: 4,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h4" component="h1" sx={{ mb: 2, mx: {xs: 4}, fontWeight: "900", fontSize: {xs: 18, md:"2.125rem"}, textAlign: 'center'}}>
+          Master Industrial Automation
+          from SCADA, PLCs to Smart Manufacturing
+        </Typography>
+        
+        <Typography variant="body1" color='grey' sx={{ mb: 2, mx: {xs: 4}, fontSize: {xs: "0.7rem", md: "1.2rem"}, textAlign: 'center'}}>
+          Get hands-on training in PLCs, SCADA, IoT, and Industry 4.0 systems with real-world projects, 
+          expert instructors, and certification paths designed for engineers and technicians.
+        </Typography>
+        <Stack direction="row" > 
+          <Button variant="contained" sx={{ mx:1, background: "black", borderRadius: 100, fontWeight: "bold", fontSize: {xs: 8, md: 12}, px: {xs:2, md:6}}}>
+            Register
+            </Button>
+          <Box
+              sx={{
+                width: '100%',
+                height: { xs: 20, md: 40},
+                margin: "auto",
+                alignContent: "center",
+                
+              }}
+            >
+              <img
+                src="/imgs/people.png" // Replace with your image path
+                alt="Industrial Automation Training"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  overflow: "visible"
+                }}
+              />
+          </Box>
+          {/* <Box> 
+            <img 
+            src={"/imgs/people.png"}
+            alt="Industrial Automation Training"
+            height={40}
+            style={{alignContent: "center", margin: "auto"}}
+          
+             />
+          </Box> */}
+        </Stack>
+
+        {/* Features Section */}
+        <Box sx={{ py: 6 ,justifyContent: 'center',
+          alignItems: 'center'}}>
+        <Container>
+          <Grid container spacing={6} >
+           
+            <Grid size={{xs:12, md:6}} >
+              <PCard 
+              background="#FEECD3" 
+              image="/imgs/plc.webp"
+              title='From Field Devices to PLC'
+              description='Learn how PLCs work, learn how they are programmed. Start driving machines with logic.'
+              >
+
+              </PCard>
+              
+            </Grid>
+
+
+            <Grid size={{xs:12, md:6}}>
+              <PCard 
+              background="#d9e5d5" 
+              image="/imgs/scada_dash.webp"
+              title='Learn SCADA, MES, IIOT and AI'
+              description='Data visualization and driving decisions through data has become industry priority. Start learning now'
+              >
+
+              </PCard>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      
+      </Box>
+      </>
   );
 }
