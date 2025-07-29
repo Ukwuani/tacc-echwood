@@ -46,7 +46,7 @@ export default function CourseDetailPage() {
       <Container maxWidth="lg" sx={{ mt: 6 }}>
         <Grid container spacing={6}>
           {/* Left: Course Details */}
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs:12, md:8}}>
             <Typography variant="h5" gutterBottom>
               What You'll Learn
             </Typography>

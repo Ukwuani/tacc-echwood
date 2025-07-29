@@ -67,7 +67,7 @@ export default function CourseDescriptionPage() {
               'Using AI to optimize industrial operations',
               'Designing secure and scalable smart factory solutions',
             ].map((point, index) => (
-              <Grid item xs={12} sm={6} key={index}>
+              <Grid size={{ xs:12, sm:6}} key={index}>
                 <Typography variant="body1">• {point}</Typography>
               </Grid>
             ))}
