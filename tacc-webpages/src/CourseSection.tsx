@@ -61,7 +61,6 @@ export default function CourseSection() {
             width="720"
             height="360"
             src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1"
-            frameborder="0"
           ></iframe>
 
           <Box
