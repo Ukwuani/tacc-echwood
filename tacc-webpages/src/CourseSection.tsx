@@ -93,7 +93,7 @@ export default function CourseSection() {
                     sx={{
                       mb: 2,
                       mx: { xs: 4 },
-                      fontSize: { xs: "0.3rem", md: "1rem" },
+                      fontSize: { xs: "0.8rem", md: "1rem" },
                       textAlign: "left",
                     }}
                   >
