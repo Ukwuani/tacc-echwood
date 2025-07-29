@@ -23,7 +23,7 @@ export default function HeroSection() {
             mb: 2,
             mx: { xs: 4 },
             fontWeight: "900",
-            fontSize: { xs: 18, md: "2.125rem" },
+            fontSize: { xs: "1.2rem", md: "2.125rem" },
             textAlign: "center",
           }}
         >
@@ -36,7 +36,7 @@ export default function HeroSection() {
           sx={{
             mb: 2,
             mx: { xs: 4 },
-            fontSize: { xs: "0.7rem", md: "1.2rem" },
+            fontSize: { xs: "0.9rem", md: "1.2rem" },
             textAlign: "center",
           }}
         >
@@ -44,25 +44,34 @@ export default function HeroSection() {
           with real-world projects, expert instructors, and certification paths
           designed for engineers and technicians.
         </Typography>
-        <Stack direction="row">
+        <Grid container spacing={2}>
+          
+          
+          <Grid size={{xs: 12, md:4}} display="flex" justifyContent="center" alignItems="center" >
+
           <Button
             variant="contained"
             sx={{
-              mx: 1,
               background: "black",
               borderRadius: 100,
               fontWeight: "bold",
-              fontSize: { xs: 8, md: 12 },
+              height:{xs:"3rem"},
+              fontSize: { xs: "0.8rem", md: 12 },
               px: { xs: 2, md: 6 },
             }}
           >
             Register
           </Button>
+           </Grid>
+
+           <Grid sx={{margin: "auto"}} size={{xs: 10, md:6}} display="flex" justifyContent="center" alignItems="center">         
           <Box
             sx={{
-              width: "100%",
-              height: { xs: 20, md: 40 },
+              // width: "80%",
+              // height: { xs: "100%", md: 40 },
               margin: "auto",
+              overflow:"visible",
+              position: "relative",
               alignContent: "center",
             }}
           >
@@ -77,6 +86,7 @@ export default function HeroSection() {
               }}
             />
           </Box>
+          </Grid> 
           {/* <Box> 
             <img 
             src={"/imgs/people.png"}
@@ -86,7 +96,7 @@ export default function HeroSection() {
           
              />
           </Box> */}
-        </Stack>
+        </Grid>
 
         {/* Features Section */}
         <Box sx={{ py: 6, justifyContent: "center", alignItems: "center" }}>
