@@ -42,7 +42,7 @@ export default function CourseSection() {
           sx={{
             mb: 2,
             mx: { xs: 4 },
-            fontSize: { xs: "0.3rem", md: "1rem" },
+            fontSize: { xs: ".75rem", md: "1rem" },
             textAlign: "center",
           }}
         >
@@ -54,62 +54,67 @@ export default function CourseSection() {
         </Typography>
 
         {/* Introductory video */}
-        <Stack direction={"row"} sx={{ my: 4 }}>
-          <iframe
-            style={{ borderRadius: 20, border: "none", marginTop: "20" }}
-            id="ytplayer"
-            width="720"
-            height="360"
-            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1"
-          ></iframe>
+        <Box sx={{ py: 6, justifyContent: "center", alignItems: "center" }}>
+          <Container>
+            <Grid container sx={{ my: 4 }}>
+              <Grid size={{ xs: 12, md: 6}}  >
+                <iframe
+                  height={"360"}
+                  width={"100%"}
+                  style={{ borderRadius: 12, border: "none", marginTop: "20" }}
+                  id="ytplayer"
+                  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1"
+                ></iframe>
+              </Grid>
+              <Grid size={{ xs: 12, md: 6 }} sx={{margin: "auto"}}>
+                <Box
+                  sx={{
+                    alignContent: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    component="h1"
+                    sx={{
+                      my: 2,
+                      mx: { xs: 4 },
+                      fontSize: { xs: 12, md: "1.2rem" },
+                      textAlign: "left",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Your Journey Into Industrial Automation Starts Here!
+                  </Typography>
 
-          <Box
-            sx={{
-              maxWidth: "40%",
-              alignContent: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Typography
-              variant="h5"
-              component="h1"
-              sx={{
-                my: 2,
-                mx: { xs: 4 },
-                fontSize: { xs: 12, md: "1.2rem" },
-                textAlign: "left",
-                fontWeight: "bold",
-              }}
-            >
-              Your Journey Into Industrial Automation Starts Here!
-            </Typography>
-
-            <Typography
-              variant="body1"
-              color="grey"
-              sx={{
-                mb: 2,
-                mx: { xs: 4 },
-                fontSize: { xs: "0.3rem", md: "1rem" },
-                textAlign: "left",
-              }}
-            >
-              Get a quick overview of what our platform offers. In just a few
-              minutes, you'll discover how our courses, labs, and expert
-              instructors can help you master PLCs, SCADA, IIoT, and AI—from the
-              ground up to advanced applications. Hit play and take the first
-              step toward Industry 4.0 excellence.
-            </Typography>
-          </Box>
-        </Stack>
-
+                  <Typography
+                    variant="body1"
+                    color="grey"
+                    sx={{
+                      mb: 2,
+                      mx: { xs: 4 },
+                      fontSize: { xs: "0.3rem", md: "1rem" },
+                      textAlign: "left",
+                    }}
+                  >
+                    Get a quick overview of what our platform offers. In just a
+                    few minutes, you'll discover how our courses, labs, and
+                    expert instructors can help you master PLCs, SCADA, IIoT,
+                    and AI—from the ground up to advanced applications. Hit play
+                    and take the first step toward Industry 4.0 excellence.
+                  </Typography>
+                </Box>
+              </Grid>
+            </Grid>
+          </Container>
+        </Box>
         {/* Features Section */}
         <Box sx={{ py: 6, justifyContent: "center", alignItems: "center" }}>
           <Container>
             <Grid container spacing={4}>
               <Grid size={{ xs: 12, md: 4 }}>
                 <PCard
-                  background="#FEECD3"
+                  background="#e6dcff"
                   image="/imgs/plc.webp"
                   title="PLC Programming Track"
                   description="Learn the fundamentals of PLC programming and automation control. This hands-on course covers ladder logic, real-world applications, and troubleshooting skills essential for industrial automation careers."
@@ -127,7 +132,7 @@ export default function CourseSection() {
 
               <Grid size={{ xs: 12, md: 4 }}>
                 <PCard
-                  background="#d9e5d5"
+                  background="#ffd8d5"
                   image="/imgs/plc.webp"
                   title="SCADA, IIOT and AI Track"
                   description="Learn to integrate SCADA, MES, IIoT, AI, and Cloud tech to build smart, connected, and robust industrial systems. This course is ideal for automation professionals looking to lead digital transformation in the era of Industry 4.0."
