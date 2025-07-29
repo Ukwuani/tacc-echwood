@@ -118,6 +118,7 @@ export default function CourseSection() {
                   image="/imgs/plc.webp"
                   title="PLC Programming Track"
                   description="Learn the fundamentals of PLC programming and automation control. This hands-on course covers ladder logic, real-world applications, and troubleshooting skills essential for industrial automation careers."
+                  link="/courses"
                 ></PCard>
               </Grid>
 
@@ -127,6 +128,7 @@ export default function CourseSection() {
                   image="/imgs/plc.webp"
                   title="Devices & Protocols Track"
                   description="Learn to connect, configure, and communicate with industrial field devices using key protocols like OPC UA, MQTT, Modbus, Profibus, HART, and 4-20mA. Gain practical skills to ensure reliable data flow in automation systems."
+                  link="/course2"
                 ></PCard>
               </Grid>
 
@@ -136,6 +138,7 @@ export default function CourseSection() {
                   image="/imgs/plc.webp"
                   title="SCADA, IIOT and AI Track"
                   description="Learn to integrate SCADA, MES, IIoT, AI, and Cloud tech to build smart, connected, and robust industrial systems. This course is ideal for automation professionals looking to lead digital transformation in the era of Industry 4.0."
+                  link="/courses"
                 ></PCard>
               </Grid>
             </Grid>

@@ -9,11 +9,27 @@ import {
   Box,
   Grid,
 } from "@mui/material";
+import { Link } from "./Link";
 
 export default function Heading() {
+  const [elevated, setElevated] = React.useState(false)
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setElevated(window.scrollY > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+  
   return (
-    <AppBar position="static" color="transparent" sx={{ boxShadow: 0 }}>
-      <Toolbar sx={{ justifyContent: "space-between" }}>
+    <AppBar position="fixed" color="transparent" sx={{ 
+      backgroundColor: elevated ? '#fff' : 'transparent',
+      transition: 'background-color 0.3s ease, color 0.3s ease',
+      boxShadow: 0, margin: "auto"}}>
+       <Container maxWidth="lg">
+      <Toolbar sx={{ justifyContent: "space-between"}}>
         {/* Title */}
         <Typography variant="h6" sx={{ flexGrow: 1, fontSize: { xs: 14 } }}>
           The Automation Control Circle
@@ -29,14 +45,14 @@ export default function Heading() {
             justifyContent: "center",
           }}
         >
-          <Button href="#" color="inherit" sx={{ fontSize: 12 }}>
+          <Button component={Link} noLinkStyle href="/" color="inherit" sx={{ fontSize: 12 }}>
             Home{" "}
           </Button>
-          <Button href="#courses" color="inherit" sx={{ fontSize: 12 }}>
+          <Button component={Link} noLinkStyle href="/courses" color="inherit" sx={{ fontSize: 12 }}>
             Courses
           </Button>
-          <Button href="#pricing" color="inherit" sx={{ fontSize: 12 }}>
-            Pricing
+          <Button component={Link} noLinkStyle href="https://ng.linkedin.com/company/control-circle?trk=public_post_feed-actor-image" color="inherit" sx={{ fontSize: 12 }}>
+            Career
           </Button>
           <Button href="#contact" color="inherit" sx={{ fontSize: 12 }}>
             Contact
@@ -60,6 +76,7 @@ export default function Heading() {
           </Button>
         </Box>
       </Toolbar>
+      </Container>
     </AppBar>
   );
 }

@@ -8,7 +8,8 @@ export default function HeroSection() {
     <>
       <Box
         sx={{
-          my: 4,
+          mt:"120px",
+          mb: 4,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

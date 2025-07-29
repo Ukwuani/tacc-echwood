@@ -16,8 +16,8 @@ export default function Home() {
     <>
     <Container maxWidth="lg">
       {/* App Bar Section */}
-      <Heading></Heading>
-
+      {/* <Heading></Heading> */}
+      
       {/* Hero Section */}
       <HeroSection></HeroSection>
 
@@ -26,10 +26,7 @@ export default function Home() {
 
     </Container>
     
-    {/* Footer */}
-      <Box component="footer" sx={{ py: 4, textAlign: 'center', background: "black", color: "white", width:"100%"}}>
-        <Typography variant="body2">© {new Date().getFullYear()} MyCompany. All rights reserved.</Typography>
-      </Box>
+    
     </>
   );
 }

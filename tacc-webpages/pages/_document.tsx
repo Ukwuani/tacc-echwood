@@ -6,6 +6,7 @@ import {
   documentGetInitialProps,
 } from '@mui/material-nextjs/v15-pagesRouter';
 import theme, { inter } from '../src/theme';
+import Script from 'next/script';
 
 export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps) {
   return (
@@ -16,10 +17,31 @@ export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps)
         <link rel="icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
         <DocumentHeadTags {...props} />
+        
       </Head>
       <body>
         <Main />
         <NextScript />
+        
+        {/* Tawk.to Chat Widget */}
+        <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+              (function() {
+                var s1 = document.createElement("script"),
+                  s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/YOUR_PROPERTY_ID/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+              })();
+            `,
+          }}
+        />
       </body>
     </Html>
   );
