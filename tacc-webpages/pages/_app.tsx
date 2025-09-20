@@ -7,6 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/theme";
 import Heading from "../src/Heading";
 import { Box, Typography } from "@mui/material";
+import Footer from "../src/Footer";
 
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
@@ -23,7 +24,8 @@ export default function MyApp(props: AppProps) {
         <Box mt="60px"></Box>
         <Component {...pageProps} />
         {/* Footer */}
-        <Box
+        <Footer/>
+        {/* <Box
           component="footer"
           sx={{
             py: 4,
@@ -36,7 +38,7 @@ export default function MyApp(props: AppProps) {
           <Typography variant="body2">
             © {new Date().getFullYear()} MyCompany. All rights reserved.
           </Typography>
-        </Box>
+        </Box> */}
       </ThemeProvider>
     </AppCacheProvider>
   );
