@@ -62,7 +62,7 @@ const Footer = () => {
         </Grid>
 
         <Box mt={4} textAlign="left">
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.gray">
             © {new Date().getFullYear()} Tacc-Echwood. All rights reserved.
           </Typography>
         </Box>
