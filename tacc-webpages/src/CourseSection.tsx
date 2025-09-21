@@ -59,7 +59,7 @@ export default function CourseSection() {
             <Grid container sx={{ my: 4 }}>
               <Grid size={{ xs: 12, md: 6}}  >
                 <iframe
-  src="https://player.cloudinary.com/embed/?cloud_name=echwood&public_id=TaccEchwood_jnbvxc&autoplay=true&hide_context_menu=true&show_logo=false"
+  src="https://player.cloudinary.com/embed/?cloud_name=echwood&public_id=TaccEchwood_jnbvxc&autoplay=true&autoplay_mode=on-scroll&hide_context_menu=true&show_logo=false"
   width={"100%"}
   height={"310"} 
   style={{ borderRadius: 12, border: "none", marginTop: "20" }}
