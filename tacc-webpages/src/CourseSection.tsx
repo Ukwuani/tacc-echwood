@@ -59,14 +59,24 @@ export default function CourseSection() {
             <Grid container sx={{ my: 4 }}>
               <Grid size={{ xs: 12, md: 6}}  >
                 <iframe
+  src="https://player.cloudinary.com/embed/?cloud_name=echwood&public_id=TaccEchwood_jnbvxc&autoplay=true&hide_context_menu=true&show_logo=false"
+  width={"100%"}
+  height={"310"} 
+  style={{ borderRadius: 12, border: "none", marginTop: "20" }}
+
+  allow="autoplay; encrypted-media; picture-in-picture"
+
+></iframe>
+                {/* 
+                <iframe
                   height={"360"}
                   width={"100%"}
                   style={{ borderRadius: 12, border: "none", marginTop: "20" }}
                   id="ytplayer"
                   src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1"
-                ></iframe>
+                ></iframe> */}
               </Grid>
-              <Grid size={{ xs: 12, md: 6 }} sx={{margin: "auto"}}>
+              <Grid size={{ xs: 12, md: 5 }} sx={{margin: "auto"}}>
                 <Box
                   sx={{
                     alignContent: "center",

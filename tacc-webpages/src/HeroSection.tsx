@@ -2,6 +2,7 @@ import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Box, Stack, Button, Container, Grid } from "@mui/material";
 import PCard from "./PCard";
+import { Link } from "./Link";
 
 export default function HeroSection() {
   return (
@@ -51,6 +52,9 @@ export default function HeroSection() {
 
           <Button
             variant="contained"
+            component={Link}
+            noLinkStyle
+            href={"courses"}
             sx={{
               background: "black",
               borderRadius: 100,
