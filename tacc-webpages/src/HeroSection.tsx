@@ -54,7 +54,7 @@ export default function HeroSection() {
             variant="contained"
             component={Link}
             noLinkStyle
-            href={"courses"}
+            href={"/courses"}
             sx={{
               background: "black",
               borderRadius: 100,

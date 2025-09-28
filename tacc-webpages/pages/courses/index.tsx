@@ -18,81 +18,108 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { supabase } from '../../src/lib/supabase'
+import { Course } from '../../src/types/Course'
 
-type Course = {
-  title: string
-  image: string
-  description: string
-  link: string
-  tags: string[]
-  duration: string
-}
+// type Course = {
+//   title: string
+//   image: string
+//   description: string
+//   link: string
+//   tags: string[]
+//   duration: string
+// }
 
-const courseData: Course[] = [
-  {
-    title: 'PLC Programming',
-    image: '/imgs/plc-course.webp',
-    description:
-      'Learn the foundations of PLC logic, ladder diagrams, and real-world applications.',
-    link: '/courses/plc-programming',
-    tags: ['Beginner', 'PLC'],
-    duration: '4 Weeks',
-  },
-  {
-    title: 'TIA Portal',
-    image: '/imgs/tia.webp',
-    description:
-      'Master Siemens TIA Portal for configuring, programming, and troubleshooting.',
-    link: '/courses/tia-portal',
-    tags: ['Intermediate', 'Siemens'],
-    duration: '5 Weeks',
-  },
-  {
-    title: 'SCADA',
-    image: '/imgs/scada_dash.webp',
-    description:
-      'Design real-time SCADA systems for process monitoring and control.',
-    link: '/courses/scada',
-    tags: ['SCADA', 'HMI'],
-    duration: '3 Weeks',
-  },
-  {
-    title: 'Advanced Ignition',
-    image: '/imgs/igntion.webp',
-    description:
-      'Deep dive into Ignition 8.3 with scripting, Perspective, and advanced deployment.',
-    link: '/courses/advanced-ignition',
-    tags: ['Advanced', 'Ignition'],
-    duration: '6 Weeks',
-  },
-  {
-    title: 'Unified Namespace (UNS)',
-    image: '/imgs/uns.webp',
-    description:
-      'Learn modern data structuring in industrial systems using Unified Namespace.',
-    link: '/courses/uns',
-    tags: ['MQTT', 'Architecture'],
-    duration: '2 Weeks',
-  },
-  {
-    title: 'AI in Smart Factory',
-    image: '/imgs/ai.webp',
-    description:
-      'Apply AI for predictive maintenance and intelligent automation in smart factories.',
-    link: '/courses/ai-smart-factory',
-    tags: ['AI', 'Industry 4.0'],
-    duration: '4 Weeks',
-  },
-]
+// const courses: Course[] = [
+//   {
+//     title: 'PLC Programming',
+//     image: '/imgs/plc-course.webp',
+//     description:
+//       'Learn the foundations of PLC logic, ladder diagrams, and real-world applications.',
+//     link: '/courses/plc-programming',
+//     tags: ['Beginner', 'PLC'],
+//     duration: '4 Weeks',
+//   },
+//   {
+//     title: 'TIA Portal',
+//     image: '/imgs/tia.webp',
+//     description:
+//       'Master Siemens TIA Portal for configuring, programming, and troubleshooting.',
+//     link: '/courses/tia-portal',
+//     tags: ['Intermediate', 'Siemens'],
+//     duration: '5 Weeks',
+//   },
+//   {
+//     title: 'SCADA',
+//     image: '/imgs/scada_dash.webp',
+//     description:
+//       'Design real-time SCADA systems for process monitoring and control.',
+//     link: '/courses/scada',
+//     tags: ['SCADA', 'HMI'],
+//     duration: '3 Weeks',
+//   },
+//   {
+//     title: 'Advanced Ignition',
+//     image: '/imgs/igntion.webp',
+//     description:
+//       'Deep dive into Ignition 8.3 with scripting, Perspective, and advanced deployment.',
+//     link: '/courses/advanced-ignition',
+//     tags: ['Advanced', 'Ignition'],
+//     duration: '6 Weeks',
+//   },
+//   {
+//     title: 'Unified Namespace (UNS)',
+//     image: '/imgs/uns.webp',
+//     description:
+//       'Learn modern data structuring in industrial systems using Unified Namespace.',
+//     link: '/courses/uns',
+//     tags: ['MQTT', 'Architecture'],
+//     duration: '2 Weeks',
+//   },
+//   {
+//     title: 'AI in Smart Factory',
+//     image: '/imgs/ai.webp',
+//     description:
+//       'Apply AI for predictive maintenance and intelligent automation in smart factories.',
+//     link: '/courses/ai-smart-factory',
+//     tags: ['AI', 'Industry 4.0'],
+//     duration: '4 Weeks',
+//   },
+// ]
 
 export default function CoursesPage() {
   const [tagFilter, setTagFilter] = useState<string>('All')
   const [sortBy, setSortBy] = useState<string>('title')
+   const router = useRouter();
+    const [courses, setCourses] = useState<Course[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [message, setMessage] = useState<string | null>(null);
+  
+    useEffect(() => {
+      const fetchCourses = async () => {
+        setLoading(true);
+  
+        // Query purchased courses (joined with courses table)
+        const { data, error } = await supabase.from("courses").select();
+      console.log(data)
+        if (error) {
+          setMessage(error.message);
+        } else {
+          setCourses(data);
+        }
+  
+        setLoading(false);
+      };
+  
+      fetchCourses();
+    }, [router]);
+  
 
   const uniqueTags = [
     'All',
-    ...Array.from(new Set(courseData.flatMap((course) => course.tags))),
+    ...Array.from(new Set(courses?.flatMap((course) => course.tags))),
   ]
 
   const handleFilterChange = (event: SelectChangeEvent) => {
@@ -103,14 +130,14 @@ export default function CoursesPage() {
     setSortBy(event.target.value)
   }
 
-  const filteredCourses = courseData
+  const filteredCourses = courses
     .filter((course) =>
       tagFilter === 'All' ? true : course.tags.includes(tagFilter)
     )
     .sort((a, b) =>
       sortBy === 'title'
         ? a.title.localeCompare(b.title)
-        : a.duration.localeCompare(b.duration)
+        : a.instructor.duration.localeCompare(b.instructor.duration)
     )
 
   return (
@@ -158,7 +185,7 @@ export default function CoursesPage() {
               <CardMedia
                 component="img"
                 height="180"
-                image={course.image}
+                image={course.thumbnail_url}
                 alt={course.title}
               />
               <CardContent sx={{ flexGrow: 1 }}>
@@ -176,9 +203,9 @@ export default function CoursesPage() {
               </CardContent>
               <CardActions sx={{ justifyContent: 'space-between', px: 2, pb: 2 }}>
                 <Typography variant="caption" color="text.secondary">
-                  ⏱️ {course.duration}
+                  ⏱️ {course.instructor.duration}
                 </Typography>
-                <Button size="small" href={course.link}>
+                <Button size="small" href={`/courses/${course.slug}`}>
                   View Course
                 </Button>
               </CardActions>

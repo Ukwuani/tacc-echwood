@@ -1,7 +1,7 @@
 "use client"; // only if using App Router
 
 import { useState } from "react";
-import { supabase } from "../../src/lib/supabase";
+import { supabase } from "../src/lib/supabase";
 import {
   Container,
   Box,
@@ -19,7 +19,7 @@ import { Email, Lock } from "@mui/icons-material";
 
 export default function AuthPage() {
   const router = useRouter();
-  const [tab, setTab] = useState<"register" | "login">("register");
+  const [tab, setTab] = useState<"register" | "login">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -60,11 +60,12 @@ export default function AuthPage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #6C63FF 0%, #48C6EF 100%)",
+        background: "linear-gradient(135deg, #b4e5bc 0%, #ccc1f0 100%)",
         p: 2,
       }}
     >
       <Container maxWidth="xs">
+       
         <Paper
           elevation={10}
           sx={{
@@ -146,7 +147,7 @@ export default function AuthPage() {
                 textTransform: "none",
                 fontSize: "1rem",
                 fontWeight: "bold",
-                background: "linear-gradient(90deg, #6C63FF, #48C6EF)",
+                background: "black",
               }}
               disabled={loading}
             >

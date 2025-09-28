@@ -17,6 +17,7 @@ import {
   Alert,
 } from "@mui/material";
 import { useRouter } from "next/navigation"; // or next/router for Pages Router
+import DashboardLayout from "./_layout";
 
 interface Course {
   id: string;
@@ -41,7 +42,7 @@ export default function DashboardPage() {
       } = await supabase.auth.getSession();
 
       if (!session) {
-        router.push("/auth"); // redirect if not logged in
+        router.push("/register"); // redirect if not logged in
         return;
       }
 
@@ -66,40 +67,15 @@ export default function DashboardPage() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    router.push("/auth");
+    router.push("/register");
   };
 
   return (
     <>
-      {/* Top AppBar */}
-      <AppBar
-        position="static"
-        elevation={0}
-        sx={{
-          background: "linear-gradient(90deg, #6C63FF, #48C6EF)",
-        }}
-      >
-        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6" fontWeight="bold">
-            🎓 My Dashboard
-          </Typography>
-          <Button
-            variant="outlined"
-            color="inherit"
-            onClick={handleLogout}
-            sx={{
-              borderRadius: 3,
-              textTransform: "none",
-              fontWeight: "bold",
-            }}
-          >
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
+    <DashboardLayout>
 
       {/* Page Content */}
-      <Container maxWidth="lg" sx={{ mt: 6 }}>
+      <Container maxWidth="lg" sx={{ mt: 6, minHeight:"60vh" }}>
         <Typography variant="h4" fontWeight="bold" gutterBottom>
           My Courses
         </Typography>
@@ -115,7 +91,7 @@ export default function DashboardPage() {
         ) : courses.length > 0 ? (
           <Grid container spacing={4}>
             {courses.map((course) => (
-              <Grid item xs={12} sm={6} md={4} key={course.id}>
+              <Grid  size={{ xs: 12, sm:6, md: 4 }} key={course.id}>
                 <Card
                   sx={{
                     borderRadius: 4,
@@ -167,7 +143,7 @@ export default function DashboardPage() {
                 py: 1.2,
                 px: 4,
                 textTransform: "none",
-                background: "linear-gradient(90deg, #6C63FF, #48C6EF)",
+                background: "black",
               }}
               onClick={() => router.push("/courses")}
             >
@@ -176,6 +152,7 @@ export default function DashboardPage() {
           </Box>
         )}
       </Container>
+      </DashboardLayout>
     </>
   );
 }

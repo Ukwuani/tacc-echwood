@@ -19,33 +19,10 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { supabase } from "../../src/lib/supabase";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Course } from "../../src/types/Course";
 
 export default function CourseDetailPage() {
-  interface CourseOutline {
-    title: string;
-    items: Array<string>;
-  }
 
-  interface CourseInstructor {
-    image: string;
-    title: string;
-    name: string;
-    duration: string;
-    level: string;
-    certificate: string;
-    format: string;
-  }
-
-  interface Course {
-    id: string;
-    title: string;
-    description: string;
-    thumbnail_url?: string;
-    objectives: Array<string>;
-    objective_note: string;
-    outline: Array<CourseOutline>;
-    instructor: CourseInstructor;
-  }
   const router = useRouter();
   const [courses, setCourses] = useState<Course>();
   const [loading, setLoading] = useState(true);
@@ -54,26 +31,16 @@ export default function CourseDetailPage() {
   useEffect(() => {
     const fetchCourses = async () => {
       setLoading(true);
-      console.log(router?.query.course);
-
-      // Get current user
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
-
-      if (!session) {
-        router.push("/auth"); // redirect if not logged in
-        return;
-      }
 
       // Query purchased courses (joined with courses table)
-      const { data, error } = await supabase.from("courses").select();
-      // .ilike("slug", router?.query.course as string)
-      console.log(data);
+      const { data, error } = await supabase.from("courses").select()
+      .ilike("slug", router?.query.course as string)
+      .single()
+
       if (error) {
         setMessage(error.message);
       } else {
-        setCourses(data[0]);
+        setCourses(data);
       }
 
       setLoading(false);

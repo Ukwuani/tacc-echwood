@@ -96,7 +96,7 @@ export default function Heading() {
                 sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}
               >
                 <Button
-                  href="https://paystack.shop/tacc-couses"
+                  href="/register"
                   variant="outlined"
                   color="inherit"
                   sx={{
@@ -106,7 +106,7 @@ export default function Heading() {
                     px: { xs: 2, md: 4 },
                   }}
                 >
-                  Register
+                  Sign In/Up
                 </Button>
               </Box>
             </>

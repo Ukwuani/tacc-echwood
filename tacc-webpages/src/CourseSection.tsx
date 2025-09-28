@@ -138,7 +138,7 @@ export default function CourseSection() {
                   image="/imgs/plc.webp"
                   title="Devices & Protocols Track"
                   description="Learn to connect, configure, and communicate with industrial field devices using key protocols like OPC UA, MQTT, Modbus, Profibus, HART, and 4-20mA. Gain practical skills to ensure reliable data flow in automation systems."
-                  link="/course2"
+                  link="/courses"
                 ></PCard>
               </Grid>
 
