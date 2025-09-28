@@ -13,17 +13,23 @@ import {
   Tabs,
   Tab,
   InputAdornment,
+  Grid,
 } from "@mui/material";
-import { useRouter } from "next/navigation"; // or next/router for Pages Router
-import { Email, Lock } from "@mui/icons-material";
+import { useRouter } from "next/router";
+import { Email, Lock, Person } from "@mui/icons-material";
 
 export default function AuthPage() {
   const router = useRouter();
   const [tab, setTab] = useState<"register" | "login">("login");
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [message, setMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +37,12 @@ export default function AuthPage() {
     setMessage(null);
 
     if (tab === "register") {
-      const { error } = await supabase.auth.signUp({ email, password });
+      const { error } = await supabase.auth.signUp({ email, password, options: {
+        data: {
+          first_name: firstName,
+          last_name: lastName
+        }
+      }});
       if (error) {
         setMessage({ type: "error", text: error.message });
       } else {
@@ -41,12 +52,24 @@ export default function AuthPage() {
         });
       }
     } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
       if (error) {
         setMessage({ type: "error", text: error.message });
       } else {
-        setMessage({ type: "success", text: "Login successful! Redirecting..." });
-        setTimeout(() => router.push("/dashboard"), 1500);
+        setMessage({
+          type: "success",
+          text: "Login successful! Redirecting...",
+        });
+        setTimeout(() => {
+          if (router?.query?.from) {
+            router.push(router?.query?.from + "/"+router?.query?.slug)
+          } else {
+            router.push("/dashboard")
+          }
+        }, 1000);
       }
     }
 
@@ -65,7 +88,6 @@ export default function AuthPage() {
       }}
     >
       <Container maxWidth="xs">
-       
         <Paper
           elevation={10}
           sx={{
@@ -118,6 +140,45 @@ export default function AuthPage() {
                 ),
               }}
             />
+
+            {tab === "register" &&
+              <Grid sx={{mt:1}} container spacing={2}>
+              <Grid size={{ xs: 12, md: 6 }}>
+                <TextField
+                  label="First Name"
+                  fullWidth
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Person />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+
+              <Grid size={{ xs: 12, md: 6 }}>
+                <TextField
+                  label="Last Name"
+                  fullWidth
+                  required
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Person />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+            </Grid>
+
+                }
             <TextField
               label="Password"
               type="password"

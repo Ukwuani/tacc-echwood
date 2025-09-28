@@ -26,41 +26,23 @@ export default function CourseRegistration() {
   const [courseId, setCourseId] = useState("");
   const [courses, setCourses] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [userExists, setUserExists] = useState(true);
-  const [message, setMessage] = useState<{ type: "success" | "error" | "info"; text: string } | null>(null);
-
-  useEffect(() => {
-    const fetchCourses = async () => {
-      const { data, error } = await supabase.from("courses").select("*");
-      if (!error && data) setCourses(data);
-    };
-    fetchCourses();
-  }, []);
+  const [userExists, setUserExists] = useState(false);
+  const [message, setMessage] = useState<{ type: "success" | "error" | "info"; text: string; action?: string } | null>(null);
 
   const checkUserExists = async () => {
-    if (!email) return;
-    setLoading(true);
-    let res: any = {}
-    try {
-     res = await fetch(process.env.NEXT_PUBLIC_SUPABASE_URL+"/api/get-user", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email }),
-  });} catch  {
-  }
-  
-  const data = await res?.json();
-  console.log(data)
-  if (data?.user) {
-    console.log("User exists:", data.user);
-  } else {
-    console.log("User not found");
-  }
+  const {data, error} = await supabase.auth.getUser()
+      if (!error) {
+        setEmail(data?.user?.email as string)
+        setFirstName(data?.user?.user_metadata["first_name"] as string)
+        setFirstName(data?.user?.user_metadata["last_name"] as string)
+      }
 
-    if (!data) {
-      setMessage({ type: "error", text: "You don't have an account yet, we will create one." });
+      console.log(data)
+
+    if (!data?.user) {
+      setMessage({ type: "error", text: "You don't have an account yet, we will create one.", action: "need-login"});
       setUserExists(false);
-    } else if (data) {
+    } else if (data?.user) {
       setUserExists(true);
       setMessage({ type: "info", text: "You've got an account, let's register this course" });
     } else {
@@ -69,6 +51,17 @@ export default function CourseRegistration() {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      const { data, error } = await supabase.from("courses").select("*");
+      if (!error && data) setCourses(data);
+    };
+    checkUserExists()
+    fetchCourses();
+  }, []);
+
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -125,7 +118,30 @@ export default function CourseRegistration() {
 
           <Box component="form" onSubmit={handleSubmit}>
             <Grid container spacing={2}>
-              {/* Email first */}
+
+              { !userExists && message && message.action == "need-login" &&<Grid size={{xs:12}}>
+                    <Button
+                      href="/register?from=get-course&slug=plc-tia-portal"
+                      fullWidth
+                      variant="contained"
+                      sx={{
+                        mt: 2,
+                        py: 1.5,
+                        fontSize: "1rem",
+                        fontWeight: "bold",
+                        borderRadius: 3,
+                        background: "black",
+                      }}
+                      disabled={loading}
+                    >
+                      {loading ? <CircularProgress size={24} /> : "Continue to Login or Create Account"}
+                    </Button>
+                  </Grid>}
+
+      
+              {userExists && (
+                <>
+                 {/* Email first */}
               <Grid  size={{xs:12, md:12}}>
                 <TextField
                   label="Email"
@@ -146,8 +162,6 @@ export default function CourseRegistration() {
                 />
               </Grid>
 
-              {!userExists && (
-                <>
                   <Grid size={{xs:12, sm:6}}>
                     <TextField
                       label="First Name"
@@ -196,10 +210,8 @@ export default function CourseRegistration() {
                       }}
                     />
                   </Grid>
-                </>
-              )}
 
-               <Grid size={{xs:12}}>
+                   <Grid size={{xs:12}}>
                     <TextField
                       select
                       label="Select Course"
@@ -241,6 +253,10 @@ export default function CourseRegistration() {
                       {loading ? <CircularProgress size={24} /> : "Register"}
                     </Button>
                   </Grid>
+                </>
+              )}
+
+              
             </Grid>
           </Box>
         </Paper>
