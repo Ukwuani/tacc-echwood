@@ -1,104 +1,107 @@
-'use client'
+"use client";
 
 import {
   Box,
   Button,
   Chip,
   Container,
-  Divider,
   Grid,
-  Stack,
   Typography,
-} from '@mui/material'
+  Divider,
+  Avatar,
+  Stack,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { supabase } from "../../src/lib/supabase";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-export default function CourseDescriptionPage() {
+export default function CourseDetailPage() {
+  interface CourseOutline {
+    title: string;
+    items: Array<string>;
+  }
+
+  interface CourseInstructor {
+    image: string;
+    title: string;
+    name: string;
+    duration: string;
+    level: string;
+    certificate: string;
+    format: string;
+  }
+
+  interface Course {
+    id: string;
+    title: string;
+    description: string;
+    thumbnail_url?: string;
+    objectives: Array<string>;
+    objective_note: string;
+    outline: Array<CourseOutline>;
+    instructor: CourseInstructor;
+  }
+  const router = useRouter();
+  const [courses, setCourses] = useState<Course>();
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      setLoading(true);
+      console.log(router?.query.course);
+
+      // Get current user
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      if (!session) {
+        router.push("/auth"); // redirect if not logged in
+        return;
+      }
+
+      // Query purchased courses (joined with courses table)
+      const { data, error } = await supabase.from("courses").select();
+      // .ilike("slug", router?.query.course as string)
+      console.log(data);
+      if (error) {
+        setMessage(error.message);
+      } else {
+        setCourses(data[0]);
+      }
+
+      setLoading(false);
+    };
+
+    fetchCourses();
+  }, [router]);
+
   return (
-    <Box sx={{ py: 6 }}>
-      <Container maxWidth="lg">
-        {/* Course Title & Overview */}
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="overline" color="secondary">
-            Professional Certification Course
+    <Box sx={{ pb: 8 }}>
+      {/* Hero Section */}
+      <Box
+        sx={{
+          backgroundColor: "#feecd3",
+          py: { xs: 6, md: 10 },
+          textAlign: "center",
+        }}
+      >
+        <Container maxWidth="md">
+          <Chip label="Featured Course" sx={{ mb: 2 }} />
+          <Typography variant="h3" fontWeight="bold" gutterBottom>
+            {courses?.title}
           </Typography>
-          <Typography variant="h1" fontWeight="bold" gutterBottom sx={{fontSize: { xs: 18, md: "2.125rem" }}}>
-            SCADA, IIoT & AI Integration for Smart Industries
+          <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
+            {courses?.description}
           </Typography>
-          <Typography variant="h6" color="text.secondary" maxWidth="md" sx={{fontSize: { xs: "0.8rem", md: "1.125rem" }}}>
-            Learn how to integrate SCADA, MES, IIoT, AI, and Cloud to build smart, connected, and robust industrial systems. Ideal for professionals ready to lead in Industry 4.0.
-          </Typography>
-          <Stack direction="row" spacing={2} mt={3}>
-            <Chip label="Intermediate Level" color="default" />
-            <Chip label="4 Weeks" color="default" />
-            <Chip label="Certificate Included" color="success" />
-          </Stack>
-        </Box>
-
-        {/* Instructor */}
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h5" fontWeight="bold" gutterBottom>
-            Meet Your Instructor
-          </Typography>
-          <Stack direction="row" spacing={3} alignItems="center">
-            <Box
-              component="img"
-              src="/imgs/barnes.png"
-              alt="Instructor"
-              sx={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover' }}
-            />
-            <Box>
-              <Typography variant="subtitle1">Engr. Ozizi Elijah</Typography>
-              <Typography variant="body2" color="text.secondary">
-                Automation Specialist, 15+ years in industrial systems, SCADA expert.
-              </Typography>
-            </Box>
-          </Stack>
-        </Box>
-
-        {/* What You'll Learn */}
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h5" fontWeight="bold" gutterBottom>
-            What You’ll Learn
-          </Typography>
-          <Grid container spacing={2}>
-            {[
-              'How SCADA systems work and how to deploy them',
-              'Connecting field devices using industrial protocols',
-              'Integrating IIoT with Cloud and Edge computing',
-              'Using AI to optimize industrial operations',
-              'Designing secure and scalable smart factory solutions',
-            ].map((point, index) => (
-              <Grid size={{ xs:12, sm:6}} key={index}>
-                <Typography variant="body1">• {point}</Typography>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-
-        {/* Course Content Outline */}
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h5" fontWeight="bold" gutterBottom>
-            Course Outline
-          </Typography>
-          <Stack spacing={2}>
-            <Typography>📘 Module 1: Introduction to SCADA & Automation</Typography>
-            <Typography>🔗 Module 2: Connecting Field Devices & Protocols</Typography>
-            <Typography>🌐 Module 3: IIoT & Cloud Integration</Typography>
-            <Typography>🧠 Module 4: AI in Industrial Applications</Typography>
-            <Typography>🛠️ Final Project: Build a Smart Monitoring System</Typography>
-          </Stack>
-        </Box>
-
-        <Divider sx={{ my: 6 }} />
-
-        {/* CTA */}
-        <Box textAlign="center">
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
-            Ready to Future-Proof Your Automation Career?
-          </Typography>
-          <Typography variant="body1" color="text.secondary" mb={3}>
-            Enroll today and gain practical, job-ready skills with hands-on labs, expert guidance, and certification.
-          </Typography>
-          <Button variant="contained"
+          <Button
+            variant="contained"
             sx={{
               mx: 1,
               background: "black",
@@ -106,11 +109,166 @@ export default function CourseDescriptionPage() {
               fontWeight: "bold",
               fontSize: { xs: 8, md: 12 },
               px: { xs: 2, md: 6 },
-            }} size="large">
+            }}
+            size="large"
+          >
             Enroll Now
           </Button>
-        </Box>
+        </Container>
+      </Box>
+
+      {/* Main Content */}
+      <Container maxWidth="lg" sx={{ mt: 6 }}>
+        <Grid container spacing={6}>
+          {/* Left: Course Details */}
+          <Grid size={{ xs: 12, md: 8 }}>
+            <Typography variant="h5" gutterBottom>
+              What You'll Learn
+            </Typography>
+            <List dense>
+              {courses?.objectives.map((point, index) => (
+                <ListItem key={index}>
+                  <ListItemIcon>
+                    <CheckCircleIcon color="warning" />
+                  </ListItemIcon>
+                  <ListItemText primary={point} />
+                </ListItem>
+              ))}
+            </List>
+          </Grid>
+
+          {/* Right: Sidebar */}
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Box
+              sx={{
+                p: 3,
+                // border: '1px solid #ddd',
+                borderRadius: "1.66rem",
+                backgroundColor: "#f2fbf2",
+              }}
+            >
+              <Typography variant="subtitle1" gutterBottom>
+                Instructor
+              </Typography>
+              <Stack
+                direction="row"
+                spacing={2}
+                alignItems="center"
+                sx={{ mb: 2 }}
+              >
+                <Avatar src={courses?.instructor?.image} alt="Instructor" />
+                <Box>
+                  <Typography variant="body1" fontWeight="medium">
+                    {courses?.instructor?.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {courses?.instructor?.title}
+                  </Typography>
+                </Box>
+              </Stack>
+
+              <Typography variant="subtitle1" sx={{ mt: 2 }}>
+                Course Details
+              </Typography>
+              <List dense>
+                <ListItem>
+                  <ListItemText
+                    primary="Duration"
+                    secondary={courses?.instructor?.duration}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Level"
+                    secondary={courses?.instructor?.level}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Certificate"
+                    secondary={courses?.instructor?.certificate}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Format"
+                    secondary={courses?.instructor?.format}
+                  />
+                </ListItem>
+              </List>
+
+              <Button
+                variant="contained"
+                sx={{
+                  mx: 1,
+                  background: "black",
+                  borderRadius: 100,
+                  fontWeight: "bold",
+                  fontSize: { xs: 8, md: 12 },
+                  px: { xs: 2, md: 6 },
+                }}
+                fullWidth
+              >
+                Enroll Now
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+
+      <Divider sx={{ my: 4 }} />
+        {/* Course Content Outline */}
+
+        <Typography variant="h5" fontWeight="bold" gutterBottom>
+          Course Outline
+        </Typography>
+
+        <Grid container sx={{ my: 4 }}>
+          {courses?.outline.map(({ title, items }, index) => (
+            <Grid
+              size={{ xs: 12, md: 5 }}
+              sx={{ background: "#f7f7f6", borderRadius: '1rem', m: 2, p:2 }}
+            >
+              <Typography variant="h6" key={index}>
+                🔗 {title}
+              </Typography>
+
+              {items.map((item, index) => (
+                <Typography sx={{ ml: 4 }} key={index}>
+                  {" "}
+                  - {item}
+                </Typography>
+              ))}
+            </Grid>
+          ))}
+        </Grid>
       </Container>
+
+
+      <Divider sx={{ my: 6 }} />
+      {/* CTA */}
+      <Box textAlign="center">
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Ready to Future-Proof Your Automation Career?
+        </Typography>
+        <Typography variant="body1" color="text.secondary" mb={3}>
+          Enroll today and gain practical, job-ready skills with hands-on labs,
+          expert guidance, and certification.
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{
+            mx: 1,
+            background: "black",
+            borderRadius: 100,
+            fontWeight: "bold",
+            fontSize: { xs: 8, md: 12 },
+            px: { xs: 2, md: 6 },
+          }}
+          size="large"
+        >
+          Enroll Now
+        </Button>
+      </Box>
     </Box>
-  )
+  );
 }
