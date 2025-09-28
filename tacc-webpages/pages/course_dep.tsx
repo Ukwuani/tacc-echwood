@@ -99,6 +99,7 @@ export default function CourseDescriptionPage() {
             Enroll today and gain practical, job-ready skills with hands-on labs, expert guidance, and certification.
           </Typography>
           <Button variant="contained"
+          href='/courses/register/enroll'
             sx={{
               mx: 1,
               background: "black",

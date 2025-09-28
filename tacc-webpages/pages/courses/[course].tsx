@@ -68,6 +68,7 @@ export default function CourseDetailPage() {
             {courses?.description}
           </Typography>
           <Button
+          href='/courses/register/enroll'
             variant="contained"
             sx={{
               mx: 1,
@@ -165,6 +166,7 @@ export default function CourseDetailPage() {
               </List>
 
               <Button
+              href='/courses/register/enroll'
                 variant="contained"
                 sx={{
                   mx: 1,
@@ -222,6 +224,7 @@ export default function CourseDetailPage() {
           expert guidance, and certification.
         </Typography>
         <Button
+        href='/courses/register/enroll'
           variant="contained"
           sx={{
             mx: 1,
