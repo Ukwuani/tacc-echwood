@@ -21,7 +21,7 @@ import Paystack from "@paystack/inline-js";
 import { Scholarship } from "../../../src/types/Scholarship";
 import dynamic from 'next/dynamic';
 
-const CCourseRegistration = dynamic(() => import('./_component'), { ssr: false });
+const CCourseRegistration = dynamic(() => import('../../../src/RegisterCourse'), { ssr: false });
 
 
 export default function CourseRegistration() {

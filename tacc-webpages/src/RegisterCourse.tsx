@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { paystack_public_key, supabase } from "../../../src/lib/supabase";
+import { paystack_public_key, supabase } from "./lib/supabase";
 import {
   Container,
   Typography,
@@ -18,8 +18,8 @@ import {
 } from "@mui/material";
 import { Email, Person, Phone, School, Send } from "@mui/icons-material";
 import Paystack from "@paystack/inline-js";
-import { Scholarship } from "../../../src/types/Scholarship";
-import { Course } from "../../../src/types/Course";
+import { Scholarship } from "./types/Scholarship";
+import { Course } from "./types/Course";
 import { useRouter } from "next/router";
 
 export default function CourseRegistration() {
