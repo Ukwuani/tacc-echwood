@@ -24,4 +24,5 @@ export interface Course {
     instructor: CourseInstructor;
     tags: string[];
     slug: string;
+    amount: number
   }

@@ -17,14 +17,16 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.3.2",
     "@mui/material-nextjs": "latest",
+    "@paystack/inline-js": "^2.22.7",
     "@supabase/supabase-js": "^2.58.0",
     "clsx": "latest",
-    "next": "^15.0.0",
+    "next": "^15.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "latest",
+    "@types/paystack__inline-js": "^1.0.2",
     "@types/react": "^19.0.0",
     "eslint": "latest",
     "eslint-config-next": "^15.0.0",

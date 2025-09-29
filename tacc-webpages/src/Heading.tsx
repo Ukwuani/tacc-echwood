@@ -19,6 +19,8 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "./Link";
+import { supabase } from "./lib/supabase";
+import { useRouter } from "next/router";
 
 const pages = [
   { title: "Home", href: "/" },
@@ -32,6 +34,17 @@ const pages = [
 
 export default function Heading() {
   const [elevated, setElevated] = React.useState(false);
+  const [hasSession, setHasSession] = React.useState(false);
+  const router = useRouter()
+
+  React.useEffect(() => {
+    const checkSession = async () => {
+      const { data, error } = await supabase.auth.getUser();
+      setHasSession(!error);
+      
+    };
+    checkSession();
+  }, [router]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +109,7 @@ export default function Heading() {
                 sx={{ flex: 1, display: "flex", justifyContent: "flex-end" }}
               >
                 <Button
-                  href="/register"
+                  href={hasSession ? "/dashboard" : "/register"}
                   variant="outlined"
                   color="inherit"
                   sx={{
@@ -106,7 +119,7 @@ export default function Heading() {
                     px: { xs: 2, md: 4 },
                   }}
                 >
-                  Sign In/Up
+                  { hasSession ? "Dashboard" : "Sign In/Up"}
                 </Button>
               </Box>
             </>
