@@ -15,6 +15,14 @@ export default function MyApp(props: AppProps) {
     <AppCacheProvider {...props}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>Industrial Automation Training & System Integration | The Automation Control Center - PLC, SCADA, IIoT Courses</title>
+        <meta name="description" content="Master industrial automation with TACC. Expert PLC programming courses, SCADA training, IIoT solutions, system integration services, and Industry 4.0 consulting. Get certified by industry professionals."/>
+        <meta name="keywords" content="PLC training, SCADA courses, industrial automation, IIoT training, Industry 4.0, system integration, automation consulting, PLC programming, Modbus, OPC UA, MQTT, MES systems"/>
+        <meta name="author" content="TACC - The Automation Control Circle"/>
+        <meta property="og:title" content="Industrial Automation Training & System Integration | TACC"/>
+        <meta property="og:description" content="Master industrial automation with expert-led PLC, SCADA, and IIoT training. Professional system integration and consulting services."/>
+        <meta property="og:type" content="website"/>
+        <link rel="canonical" href="https://tacc.echwood.com/"/>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
