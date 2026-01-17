@@ -10,9 +10,11 @@ import {
   Stack,
   Typography,
 } from '@mui/material'
+import DefaultLayout from '../src/DefaultLayout'
 
 export default function CourseDescriptionPage() {
   return (
+    <DefaultLayout>
     <Box sx={{ py: 6 }}>
       <Container maxWidth="lg">
         {/* Course Title & Overview */}
@@ -113,5 +115,6 @@ export default function CourseDescriptionPage() {
         </Box>
       </Container>
     </Box>
+    </DefaultLayout>
   )
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import { supabase } from "../../src/lib/supabase";
+import { supabase } from "./lib/supabase";
 import {
   AppBar,
   Toolbar,

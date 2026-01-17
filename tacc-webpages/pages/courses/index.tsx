@@ -22,6 +22,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { supabase } from '../../src/lib/supabase'
 import { Course } from '../../src/types/Course'
+import DefaultLayout from '../../src/DefaultLayout'
 
 // type Course = {
 //   title: string
@@ -141,6 +142,7 @@ export default function CoursesPage() {
     )
 
   return (
+    <DefaultLayout>
     <Container sx={{ py: 8 }}>
       <Typography variant="h3" fontWeight="bold" align="center" gutterBottom>
         Explore Our Courses
@@ -214,5 +216,6 @@ export default function CoursesPage() {
         ))}
       </Grid>
     </Container>
+    </DefaultLayout>
   )
 }

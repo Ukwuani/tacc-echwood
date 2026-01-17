@@ -17,7 +17,7 @@ import {
   Alert,
 } from "@mui/material";
 import { useRouter } from "next/navigation"; // or next/router for Pages Router
-import DashboardLayout from "./_layout";
+import DashboardLayout from "../../src/DashboardLayout";
 
 interface Course {
   id: string;

@@ -27,9 +27,9 @@ const pages = [
   { title: "Courses", href: "/courses" },
   {
     title: "Career",
-    href: "https://ng.linkedin.com/company/control-circle?trk=public_post_feed-actor-image",
+    href: "https://ng.linkedin.com/company/control-circle",
   },
-  { title: "Contact", href: "/contact" },
+  { title: "Contact", href: "https://ng.linkedin.com/company/control-circle" },
 ];
 
 export default function Heading() {

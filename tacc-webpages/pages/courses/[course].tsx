@@ -20,6 +20,7 @@ import { supabase } from "../../src/lib/supabase";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Course } from "../../src/types/Course";
+import DefaultLayout from "../../src/DefaultLayout";
 
 export default function CourseDetailPage() {
 
@@ -50,6 +51,7 @@ export default function CourseDetailPage() {
   }, [router]);
 
   return (
+    <DefaultLayout>
     <Box sx={{ pb: 8 }}>
       {/* Hero Section */}
       <Box
@@ -240,5 +242,6 @@ export default function CourseDetailPage() {
         </Button>
       </Box>
     </Box>
+    </DefaultLayout>
   );
 }

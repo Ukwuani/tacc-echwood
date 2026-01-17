@@ -19,12 +19,12 @@ export default function MyApp(props: AppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        {/* App Bar Section */}
+        {/* App Bar Section
         <Heading></Heading>
-        <Box mt="60px"></Box>
+        <Box mt="60px"></Box> */}
         <Component {...pageProps} />
-        {/* Footer */}
-        <Footer/>
+        {/* Footer
+        <Footer/> */}
         {/* <Box
           component="footer"
           sx={{

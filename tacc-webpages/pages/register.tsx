@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import { Email, Lock, Person } from "@mui/icons-material";
+import DefaultLayout from "../src/DefaultLayout";
 
 export default function AuthPage() {
   const router = useRouter();
@@ -77,6 +78,7 @@ export default function AuthPage() {
   };
 
   return (
+    <DefaultLayout>
     <Box
       sx={{
         minHeight: "100vh",
@@ -224,5 +226,6 @@ export default function AuthPage() {
         </Paper>
       </Container>
     </Box>
+    </DefaultLayout>
   );
 }
