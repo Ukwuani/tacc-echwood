@@ -327,7 +327,8 @@ export default function VideoStreaming() {
                       </IconButton>
                     </Tooltip>
                     <Tooltip title="More">
-                      <IconButton size="small" onClick={handleMenuOpen}>
+                      <IconButton size="small" >
+                        {/* onClick={handleMenuOpen}> */}
                         <MoreVert sx={{ fontSize: 20 }} />
                       </IconButton>
                     </Tooltip>
