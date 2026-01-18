@@ -24,6 +24,11 @@ import {
   CheckCircle,
   Menu as MenuIcon,
 } from '@mui/icons-material';
+import VideoPlayer from '../src/HeaderVideo';
+import Footer from '../src/Footer';
+// import Video from 'next-video';
+// import Player from 'next-video/player';
+// import tacc from '/videos/tacc.mp4';
 
 export default function TACCHomePage() {
   const services = [
@@ -82,10 +87,10 @@ export default function TACCHomePage() {
   ];
 
   const stats = [
-    { value: '5000+', label: 'Trained Professionals' },
+    { value: '9000+', label: 'Trained Professionals' },
     { value: '200+', label: 'Corporate Clients' },
     { value: '50+', label: 'Research Projects' },
-    { value: '98%', label: 'Success Rate' },
+    { value: '99.9%', label: 'Success Rate' },
   ];
 
   const features = [
@@ -163,28 +168,28 @@ export default function TACCHomePage() {
     {
       text: "TACC's PLC programming course completely transformed my career. Within 3 months of completing the training, I secured a senior automation engineer position with a 40% salary increase. The hands-on labs and real-world projects made all the difference.",
       author: 'Michael Chen',
-      role: 'Automation Engineer, Shell Nigeria',
+      role: 'Automation Engineer',
     },
     {
       text: "As a maintenance technician, I wanted to move into programming. TACC's instructors made complex concepts like ladder logic and SCADA integration easy to understand. Now I'm leading automation projects at our manufacturing plant.",
       author: 'Amina Bello',
-      role: 'Control Systems Engineer, Dangote Group',
+      role: 'Control Systems Engineer',
     },
     {
       text: "The IIoT and Industry 4.0 course was exactly what our company needed. TACC customized the training for our team and helped us implement a complete predictive maintenance system. ROI was achieved in just 6 months.",
       author: 'David Okafor',
-      role: 'Plant Manager, Nigerian Breweries',
+      role: 'Plant Manager',
     },
   ];
 
   const faqs = [
     {
       question: 'Do I need prior experience to start PLC training?',
-      answer: 'No prior automation experience required. Our beginner-friendly PLC programming courses start with fundamentals including electrical basics, ladder logic, and control systems theory before progressing to advanced topics.',
+      answer: 'No prior automation experience required. Our beginner-friendly PLC programming courses start with fundamentals including electrical basics, ladder logic, structural text and control systems theory before progressing to advanced topics.',
     },
     {
       question: 'What certifications will I earn?',
-      answer: "Upon completion, you'll receive TACC Professional Certification in your chosen track (PLC Programming, SCADA Systems, IIoT, or System Integration), recognized by major industrial employers across Africa and globally.",
+      answer: "Upon completion, you'll receive TACC Professional Certification in your chosen track (PLC Programming, SCADA Systems, IIoT, or System Integration), recognized by major industrial employers globally.",
     },
     {
       question: 'Can you provide corporate training for our team?',
@@ -261,9 +266,9 @@ export default function TACCHomePage() {
         }}
       >
         <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Typography variant="h2" sx={{ fontWeight: 800, mb: 3 }}>
+          <Grid container spacing={2} alignItems="center">
+            <Grid size={{ xs: 12, md: 5 }}>
+              <Typography variant="h3" sx={{ fontWeight: 800, mb: 3 }}>
                 Master{' '}
                 <Box
                   component="span"
@@ -312,8 +317,10 @@ export default function TACCHomePage() {
                 </Button>
               </Stack>
             </Grid>
-            <Grid size={{ xs: 12, md: 6 }}>
-              <Box
+            <Grid size={{ xs: 12, md: 7 }}>
+
+                <VideoPlayer />
+              {/* <Box
                 component="img"
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
                 alt="Industrial Automation"
@@ -322,7 +329,7 @@ export default function TACCHomePage() {
                   borderRadius: 4,
                   boxShadow: '0 20px 60px rgba(0, 0, 0, 0.1)',
                 }}
-              />
+              /> */}
             </Grid>
           </Grid>
         </Container>
@@ -687,97 +694,7 @@ export default function TACCHomePage() {
       </Container>
 
       {/* Footer */}
-      <Box sx={{ bgcolor: 'white', borderTop: '1px solid #e0e0e0', py: 6 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                TACC
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                The Automation Control Circle - Your partner in industrial automation excellence.
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Email:</strong> info@tacc.echwood.com
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Phone:</strong> +234 (0) 800 TACC AUTO
-              </Typography>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Services
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['PLC Programming', 'SCADA Training', 'IIoT Courses', 'System Integration'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Company
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-            <Grid size={{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Resources
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['Documentation', 'Tutorials', 'Community', 'Support'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-          </Grid>
-          <Box sx={{ textAlign: 'center', mt: 6, pt: 4, borderTop: '1px solid #e0e0e0' }}>
-            <Typography variant="body2" color="text.secondary">
-              © 2025 TACC-Echwood. All rights reserved.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+      <Footer />
     </Box>
   );
 }

@@ -1,73 +1,101 @@
 import React from 'react';
-import { Box, Container, Typography, Link, Grid } from '@mui/material';
+import { Box, Container, Typography, Link, Grid, Button } from '@mui/material';
 
 const Footer = () => {
   return (
-    <Box
-      component="footer"
-      sx={{
-        py: 4,
-        px: 2,
-        mt: 'auto',
-        color: "white",
-        backgroundColor: "black"
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" gutterBottom>
-              Company
-            </Typography>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              About
-            </Link>
-            <Link href="https://ng.linkedin.com/company/control-circle?trk=public_post_feed-actor-image" color="inherit" underline="hover" display="block">
-              Careers
-            </Link>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              Contact
-            </Link>
+       <Box sx={{ 
+        bgcolor: 'white', borderTop: '1px solid #e0e0e0',
+         py: 6 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                TACC
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                The Automation Control Circle - Your partner in industrial automation excellence.
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                <strong>Email:</strong> info@echwood.com
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                <strong>LinkedIn:</strong> <a href='https://www.linkedin.com/company/control-circle' style={{ color: 'inherit', textDecoration: 'none' }}> @control-circle </a>
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                Services
+              </Typography>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+                {['PLC Programming', 'SCADA Training', 'IIoT Courses', 'System Integration'].map((item) => (
+                  <li key={item}>
+                    <Button
+                      sx={{
+                        color: 'text.secondary',
+                        textTransform: 'none',
+                        p: 0,
+                        justifyContent: 'flex-start',
+                        '&:hover': { color: '#0066ff' },
+                      }}
+                    >
+                      {item}
+                    </Button>
+                  </li>
+                ))}
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                Company
+              </Typography>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
+                  <li key={item}>
+                    <Button
+                      sx={{
+                        color: 'text.secondary',
+                        textTransform: 'none',
+                        p: 0,
+                        justifyContent: 'flex-start',
+                        '&:hover': { color: '#0066ff' },
+                      }}
+                    >
+                      {item}
+                    </Button>
+                  </li>
+                ))}
+              </Box>
+            </Grid>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+                Resources
+              </Typography>
+              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+                {['Documentation', 'Tutorials', 'Community', 'Support'].map((item) => (
+                  <li key={item}>
+                    <Button
+                      sx={{
+                        color: 'text.secondary',
+                        textTransform: 'none',
+                        p: 0,
+                        justifyContent: 'flex-start',
+                        '&:hover': { color: '#0066ff' },
+                      }}
+                    >
+                      {item}
+                    </Button>
+                  </li>
+                ))}
+              </Box>
+            </Grid>
           </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" gutterBottom>
-              Resources
+          <Box sx={{ textAlign: 'center', mt: 6, pt: 4, borderTop: '1px solid #e0e0e0' }}>
+            <Typography variant="body2" color="text.secondary">
+              © 2025 TACC-Echwood. All rights reserved.
             </Typography>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              Blog
-            </Link>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              Help Center
-            </Link>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              Privacy Policy
-            </Link>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" gutterBottom>
-              Follow Us
-            </Typography>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              Twitter
-            </Link>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              LinkedIn
-            </Link>
-            <Link href="#" color="inherit" underline="hover" display="block">
-              GitHub
-            </Link>
-          </Grid>
-        </Grid>
-
-        <Box mt={4} textAlign="left">
-          <Typography variant="body2" color="text.gray">
-            © {new Date().getFullYear()} Tacc-Echwood. All rights reserved.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+          </Box>
+        </Container>
+      </Box>
   );
 };
 
