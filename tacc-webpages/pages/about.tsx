@@ -55,91 +55,84 @@ export default function AboutUsPage() {
 
   const team = [
     {
-      name: 'Dr. Emmanuel Adeyemi',
-      role: 'Founder & Chief Executive Officer',
-      expertise: 'Industrial Automation & Control Systems',
-      bio: '20+ years of experience in automation engineering across oil & gas, manufacturing, and process industries. PhD in Control Systems Engineering.',
+      name: 'Michael Echefu',
+      role: 'Chairman & CEO',
+      expertise: 'Industry Expert',
+      bio: '20+ years of experience in the industry across manufacturing, and process industries. ',
+      avatar: 'M',
+    },
+    {
+      name: 'Engr. Elijah Ozizi',
+      role: 'Director of Training',
+      expertise: 'PLC Programming & SCADA Systems',
+      bio: 'Certified Siemens and Rockwell instructor with many years of hands-on industrial experience. Specialized in Control Systems and IIOT 4.0.',
       avatar: 'E',
     },
     {
-      name: 'Engr. Chioma Okonkwo',
-      role: 'Director of Training',
-      expertise: 'PLC Programming & SCADA Systems',
-      bio: 'Certified Siemens and Rockwell instructor with 15 years of hands-on industrial experience. Specialized in ladder logic and structured text programming.',
-      avatar: 'C',
-    },
-    {
-      name: 'Dr. Abubakar Mohammed',
+      name: 'Barnes Ukwuani',
       role: 'Head of Research & Development',
       expertise: 'IIoT, AI & Machine Learning',
-      bio: 'Leading researcher in industrial IoT applications and predictive maintenance. Published 30+ papers on smart manufacturing and Industry 4.0.',
-      avatar: 'A',
+      bio: 'Leading researcher in industrial IoT applications and predictive maintenance. Pioneering AI applications in industrial automation and enabling companies achieve smart manufacturing and Industry 4.0.',
+      avatar: 'B',
     },
     {
-      name: 'Engr. Sarah Oladipo',
+      name: 'Engr. Opisa O.',
       role: 'System Integration Lead',
-      expertise: 'MES, SCADA & Enterprise Systems',
-      bio: 'Expert in large-scale automation projects. Successfully integrated SCADA/MES systems for Fortune 500 companies across Africa.',
+      expertise: 'PLC,MES, SCADA & Enterprise Systems',
+      bio: 'Expert in large-scale automation projects. Successfully integrated SCADA/MES systems for companies in many sectors.',
       avatar: 'S',
     },
     {
-      name: 'Engr. Michael Eze',
+      name: 'Engr. Michael Ezema',
       role: 'Senior Instructor - PLC Systems',
       expertise: 'Allen-Bradley, Siemens, Schneider',
       bio: '12 years of field experience in automotive and pharmaceutical automation. Certified in multiple PLC platforms and industrial networks.',
       avatar: 'M',
     },
-    {
-      name: 'Dr. Fatima Yusuf',
-      role: 'Lead Researcher - AI in Automation',
-      expertise: 'Machine Learning & Predictive Analytics',
-      bio: 'Pioneering AI applications in industrial automation. Developed predictive maintenance algorithms used by major Nigerian manufacturers.',
-      avatar: 'F',
-    },
   ];
 
-  const milestones = [
-    {
-      year: '2015',
-      title: 'TACC Founded',
-      description: 'Established with a vision to bridge the automation skills gap in Africa, starting with our first PLC programming course in Lagos.',
-    },
-    {
-      year: '2017',
-      title: 'First Research Lab',
-      description: 'Opened our state-of-the-art Industrial Automation Research Lab equipped with PLCs, SCADA systems, and IIoT devices.',
-    },
-    {
-      year: '2018',
-      title: '1000+ Students Trained',
-      description: 'Reached milestone of training over 1000 automation professionals, with 85% placement rate in top engineering firms.',
-    },
-    {
-      year: '2019',
-      title: 'Corporate Training Division',
-      description: 'Launched dedicated corporate training services, partnering with Dangote, Nigerian Breweries, and Shell Nigeria.',
-    },
-    {
-      year: '2021',
-      title: 'Industry 4.0 Certification',
-      description: 'Introduced comprehensive Industry 4.0 and IIoT training programs, becoming West Africas leading provider in smart manufacturing education.',
-    },
-    {
-      year: '2022',
-      title: 'International Recognition',
-      description: 'Received ISA certification and established partnerships with Siemens, Rockwell Automation, and Schneider Electric.',
-    },
-    {
-      year: '2023',
-      title: 'System Integration Services',
-      description: 'Expanded into full-service system integration, completing SCADA/MES projects for major industrial facilities.',
-    },
-    {
-      year: '2024',
-      title: '5000+ Graduates',
-      description: 'Celebrated training over 5000 automation professionals with a 98% satisfaction rate and 200+ corporate clients.',
-    },
-  ];
+  // const milestones = [
+  //   {
+  //     year: '2015',
+  //     title: 'Echwood Founded',
+  //     description: 'Established with a vision to enabling businesses drive growth with ERP, starting with our ERP software in Lagos.',
+  //   },
+  //   {
+  //     year: '2017',
+  //     title: 'First Research Lab',
+  //     description: 'Opened our state-of-the-art Research Lab .',
+  //   },
+  //   {
+  //     year: '2018',
+  //     title: '200+ Companies Served',
+  //     description: 'Reached milestone of serving over 200 companies, enhancing their operational efficiency through automation.',
+  //   },
+  //   {
+  //     year: '2020',
+  //     title: 'Launched Logistix ERP',
+  //     description: 'Launched Logistix ERP software to help manufacturing and logistics companies streamline operations and improve efficiency.',
+  //   },
+  //   {
+  //     year: '2021',
+  //     title: 'Industry 4.0 Certification',
+  //     description: 'Introduced comprehensive Industry 4.0 and IIoT training programs, becoming West Africas leading provider in smart manufacturing education.',
+  //   },
+  //   // {
+  //   //   year: '2022',
+  //   //   title: 'International Recognition',
+  //   //   description: 'Received ISA certification and established partnerships with Siemens, Rockwell Automation, and Schneider Electric.',
+  //   // },
+  //   {
+  //     year: '2023',
+  //     title: 'System Integration Services',
+  //     description: 'Expanded into full-service system integration, completing SCADA/MES projects for major industrial facilities.',
+  //   },
+  //   {
+  //     year: '2025',
+  //     title: 'TACC branched off & 9000+ trained',
+  //     description: 'Celebrated training over 9000 automation professionals with a 98% satisfaction rate and 200+ corporate clients.',
+  //   },
+  // ];
 
   const partnerships = [
     'Siemens',
@@ -248,7 +241,7 @@ export default function AboutUsPage() {
       {/* Mission & Vision Section */}
       <Container maxWidth="lg" sx={{ py: 10 }}>
         <Grid container spacing={6}>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Paper
               sx={{
                 p: 5,
@@ -263,11 +256,11 @@ export default function AboutUsPage() {
                 </Typography>
               </Box>
               <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'text.secondary' }}>
-                To bridge the automation skills gap in Africa by providing world-class training in PLCs, SCADA, IIoT, and Industry 4.0 technologies. We empower engineers, technicians, and organizations to excel in the era of smart manufacturing through hands-on learning, cutting-edge research, and comprehensive system integration services.
+                To bridge automation skills gap by providing world-class training in PLCs, SCADA, IIoT, and Industry 4.0 technologies. We empower engineers, technicians, and organizations to excel in the era of smart manufacturing through hands-on learning, cutting-edge research, and comprehensive system integration services.
               </Typography>
             </Paper>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Paper
               sx={{
                 p: 5,
@@ -282,7 +275,7 @@ export default function AboutUsPage() {
                 </Typography>
               </Box>
               <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'text.secondary' }}>
-                To become Africa's leading center of excellence in industrial automation education and innovation. We envision a future where African automation professionals drive global smart manufacturing initiatives, contributing to sustainable industrial growth and technological advancement across the continent and beyond.
+                To become a leading center of excellence in industrial automation education and innovation. We envision a future where automation professionals drive global smart manufacturing initiatives, contributing to sustainable industrial growth and technological advancement across the continent and beyond.
               </Typography>
             </Paper>
           </Grid>
@@ -311,15 +304,15 @@ export default function AboutUsPage() {
           
           <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
             <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.9, color: 'text.secondary', mb: 4 }}>
-              The Automation Control Circle (TACC) was founded in 2015 by a group of experienced automation engineers who recognized a critical skills gap in Africa's industrial sector. With manufacturing facilities struggling to find qualified PLC programmers and SCADA specialists, they set out to create a training institution that would meet international standards while addressing local industry needs.
+              The Automation Control Circle (TACC) was founded by a group of experienced automation engineers who recognized a critical skills gap in the industrial sector. With manufacturing facilities struggling to find qualified PLC programmers and SCADA specialists, they set out to create a training institution that would meet international standards while addressing local industry needs.
             </Typography>
             
             <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.9, color: 'text.secondary', mb: 4 }}>
-              What started as a small training center in Lagos with 10 students has grown into West Africa's premier industrial automation institution. We've trained over 5,000 professionals, partnered with 200+ corporations, and established ourselves as the go-to provider for PLC, SCADA, IIoT, and Industry 4.0 training.
+              What started as a small training center in Lagos with 40 students has grown into a premier industrial automation institution. We've trained over 9,000 professionals, partnered with many corporations, and established ourselves as the go-to provider for PLC, SCADA, IIoT, and Industry 4.0 training.
             </Typography>
             
             <Typography variant="body1" sx={{ fontSize: '1.1rem', lineHeight: 1.9, color: 'text.secondary' }}>
-              Today, TACC operates state-of-the-art training facilities equipped with the latest automation hardware from Siemens, Rockwell, and Schneider Electric. Our research division develops innovative solutions for predictive maintenance and smart manufacturing, while our system integration team implements SCADA/MES systems for major industrial clients across Nigeria and beyond.
+              Today, TACC operates state-of-the-art training programs with the latest automation hardware from OEMS. Our research division develops innovative solutions for predictive maintenance and smart manufacturing, while our system integration team implements IIOT 4.0 solutions for major industrial clients.
             </Typography>
           </Box>
         </Container>
@@ -346,7 +339,7 @@ export default function AboutUsPage() {
 
         <Grid container spacing={4}>
           {values.map((value, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Grid size={{ xs: 12, md: 6 }} key={index}>
               <Card
                 sx={{
                   height: '100%',
@@ -408,7 +401,7 @@ export default function AboutUsPage() {
 
           <Grid container spacing={4}>
             {team.map((member, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid size={{ xs: 12, md: 4 }} key={index}>
                 <Paper
                   sx={{
                     p: 4,
@@ -461,7 +454,7 @@ export default function AboutUsPage() {
       </Box>
 
       {/* Milestones Timeline */}
-      <Container maxWidth="lg" sx={{ py: 10 }}>
+      {/* <Container maxWidth="lg" sx={{ py: 10 }}>
         <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
           Our{' '}
           <Box
@@ -522,10 +515,10 @@ export default function AboutUsPage() {
             </Box>
           ))}
         </Box>
-      </Container>
+      </Container> */}
 
       {/* Certifications & Accreditations */}
-      <Box sx={{ bgcolor: '#f8f9fc', py: 10 }}>
+      {/* <Box sx={{ bgcolor: '#f8f9fc', py: 10 }}>
         <Container maxWidth="lg">
           <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, textAlign: 'center' }}>
             Certifications &{' '}
@@ -546,7 +539,7 @@ export default function AboutUsPage() {
 
           <Grid container spacing={4}>
             {certifications.map((cert, index) => (
-              <Grid item xs={12} sm={6} md={3} key={index}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={index}>
                 <Paper
                   sx={{
                     p: 3,
@@ -571,7 +564,7 @@ export default function AboutUsPage() {
             ))}
           </Grid>
         </Container>
-      </Box>
+      </Box> */}
 
       {/* Partners & Clients */}
       <Container maxWidth="lg" sx={{ py: 10 }}>
@@ -594,7 +587,7 @@ export default function AboutUsPage() {
 
         <Grid container spacing={2}>
           {partnerships.map((partner, index) => (
-            <Grid item xs={6} sm={4} md={3} key={index}>
+            <Grid size={{ xs: 6, sm: 4, md: 3 }} key={index}>
               <Paper
                 sx={{
                   p: 3,
@@ -680,7 +673,7 @@ export default function AboutUsPage() {
       <Box sx={{ bgcolor: 'white', borderTop: '1px solid #e0e0e0', py: 6 }}>
         <Container maxWidth="lg">
           <Grid container spacing={4}>
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                 TACC
               </Typography>
@@ -694,7 +687,7 @@ export default function AboutUsPage() {
                 <strong>Phone:</strong> +234 (0) 800 TACC AUTO
               </Typography>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                 Services
               </Typography>
@@ -716,7 +709,7 @@ export default function AboutUsPage() {
                 ))}
               </Box>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                 Company
               </Typography>
@@ -738,7 +731,7 @@ export default function AboutUsPage() {
                 ))}
               </Box>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
                 Resources
               </Typography>

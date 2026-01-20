@@ -3,6 +3,7 @@ import { Box, CssBaseline } from "@mui/material";
 import { ReactNode } from "react";
 import Heading from "./Heading";
 import Footer from "./Footer";
+import AppNavBar from "./AppNavBar";
 
 export default function DefaultLayout({ children }: {
   children: ReactNode
@@ -11,7 +12,8 @@ export default function DefaultLayout({ children }: {
     <>
       <CssBaseline />
       {/* App Bar Section */}
-        <Heading></Heading>
+        {/* <Heading></Heading> */}
+        <AppNavBar></AppNavBar>
         <Box mt="60px"></Box>
           {children}
         {/* Footer */}

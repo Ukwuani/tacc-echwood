@@ -192,11 +192,11 @@ export default function ContactUsPage() {
   ];
 
   const socialMedia = [
-    { icon: <LinkedIn sx={{ fontSize: 30 }} />, name: 'LinkedIn', link: '#', color: '#0077b5' },
-    { icon: <Twitter sx={{ fontSize: 30 }} />, name: 'Twitter', link: '#', color: '#1da1f2' },
-    { icon: <Facebook sx={{ fontSize: 30 }} />, name: 'Facebook', link: '#', color: '#4267b2' },
-    { icon: <YouTube sx={{ fontSize: 30 }} />, name: 'YouTube', link: '#', color: '#ff0000' },
-    { icon: <WhatsApp sx={{ fontSize: 30 }} />, name: 'WhatsApp', link: '#', color: '#25d366' },
+    { icon: <LinkedIn sx={{ fontSize: 30 }} />, name: 'LinkedIn', link: 'https://ng.linkedin.com/company/control-circle', color: '#0077b5' },
+    { icon: <Twitter sx={{ fontSize: 30 }} />, name: 'Twitter', link: 'https://ng.linkedin.com/company/control-circle', color: '#1da1f2' },
+    { icon: <Facebook sx={{ fontSize: 30 }} />, name: 'Facebook', link: 'https://ng.linkedin.com/company/control-circle', color: '#4267b2' },
+    { icon: <YouTube sx={{ fontSize: 30 }} />, name: 'YouTube', link: 'https://ng.linkedin.com/company/control-circle', color: '#ff0000' },
+    { icon: <WhatsApp sx={{ fontSize: 30 }} />, name: 'WhatsApp', link: 'https://ng.linkedin.com/company/control-circle', color: '#25d366' },
   ];
 
   return (
@@ -457,6 +457,10 @@ export default function ContactUsPage() {
                     {socialMedia.map((social, index) => (
                       <Box
                         key={index}
+                        component="a"
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         sx={{
                           width: 50,
                           height: 50,
