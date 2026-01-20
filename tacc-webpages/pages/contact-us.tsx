@@ -31,6 +31,7 @@ import {
   WhatsApp,
 } from '@mui/icons-material';
 import AlertDialog from '../src/Dialog';
+import DefaultLayout from '../src/DefaultLayout';
 
 export default function ContactUsPage() {
 
@@ -200,51 +201,8 @@ export default function ContactUsPage() {
   ];
 
   return (
+    <DefaultLayout page="Contact us">
     <Box sx={{ bgcolor: '#fafafa', minHeight: '100vh' }}>
-      {/* Navigation */}
-      <AppBar position="sticky" sx={{ bgcolor: 'white', boxShadow: 1 }}>
-        <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              TACC
-            </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                Home
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                Services
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                About
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary', fontWeight: 700 }}>
-                Contact
-              </Button>
-            </Box>
-            <Button
-              variant="contained"
-              sx={{
-                background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
-                borderRadius: '50px',
-                px: 3,
-                textTransform: 'none',
-                boxShadow: '0 4px 15px rgba(0, 102, 255, 0.3)',
-              }}
-            >
-              Get Started
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
 
       {/* Hero Section */}
       <Box
@@ -690,101 +648,7 @@ export default function ContactUsPage() {
           </Grid>
         </Grid>
       </Container>
-
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'white', borderTop: '1px solid #e0e0e0', py: 6 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid size= {{ xs: 12, md: 3}}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                TACC
-              </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                The Automation Control Circle - Your partner in industrial automation excellence.
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Email:</strong> info@echwood.com
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <strong>Phone:</strong> +234 (0) 800 TACC AUTO
-              </Typography>
-            </Grid>
-            <Grid size= {{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Services
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['PLC Programming', 'SCADA Training', 'IIoT Courses', 'System Integration'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-            <Grid size= {{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Company
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-            <Grid size= {{ xs: 12, md: 3 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Resources
-              </Typography>
-              <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['Documentation', 'Tutorials', 'Community', 'Support'].map((item) => (
-                  <li key={item}>
-                    <Button
-                      sx={{
-                        color: 'text.secondary',
-                        textTransform: 'none',
-                        p: 0,
-                        justifyContent: 'flex-start',
-                        '&:hover': { color: '#0066ff' },
-                      }}
-                    >
-                      {item}
-                    </Button>
-                  </li>
-                ))}
-              </Box>
-            </Grid>
-          </Grid>
-          <Box sx={{ textAlign: 'center', mt: 6, pt: 4, borderTop: '1px solid #e0e0e0' }}>
-            <Typography variant="body2" color="text.secondary">
-              © 2025 TACC-Echwood. All rights reserved.
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
-
-      
     </Box>
+    </DefaultLayout>
   );
 }

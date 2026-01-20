@@ -40,7 +40,7 @@ export default function AppNavBar({ selectedPage }: AppNavBarProps) {
       title: "Career",
       href: "https://ng.linkedin.com/company/control-circle",
     },
-    { title: "Contact", href: "/contact-us" },
+    { title: "Contact us", href: "/contact-us" },
   ];
 
    const [elevated, setElevated] = React.useState(false);
@@ -96,7 +96,7 @@ export default function AppNavBar({ selectedPage }: AppNavBarProps) {
                   <Button
                     key={page.title}
                     color="inherit"
-                    sx={page.title == selectedPage ? { color: "text.primary", fontWeight: 700 } : {color: "text.primary"}}
+                    sx={page.title.toLowerCase() == selectedPage?.toLowerCase() ? { color: "text.primary", fontWeight: 700 } : {color: "text.primary"}}
                     href={page.href}
                   >
                     {page.title}

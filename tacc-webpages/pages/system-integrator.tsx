@@ -43,6 +43,7 @@ import {
   Assignment,
   LocalShipping,
 } from '@mui/icons-material';
+import DefaultLayout from '../src/DefaultLayout';
 
 export default function SystemIntegrationPage() {
   const services = [
@@ -287,51 +288,8 @@ export default function SystemIntegrationPage() {
   ];
 
   return (
+    <DefaultLayout page="Services">
     <Box sx={{ bgcolor: '#fafafa', minHeight: '100vh' }}>
-      {/* Navigation */}
-      <AppBar position="sticky" sx={{ bgcolor: 'white', boxShadow: 1 }}>
-        <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: 800,
-                background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              TACC
-            </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                Home
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary', fontWeight: 700 }}>
-                Services
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                About
-              </Button>
-              <Button color="inherit" sx={{ color: 'text.primary' }}>
-                Contact
-              </Button>
-            </Box>
-            <Button
-              variant="contained"
-              sx={{
-                background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
-                borderRadius: '50px',
-                px: 3,
-                textTransform: 'none',
-                boxShadow: '0 4px 15px rgba(0, 102, 255, 0.3)',
-              }}
-            >
-              Get Started
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
 
       {/* Hero Section */}
       <Box
@@ -879,85 +837,7 @@ export default function SystemIntegrationPage() {
           </Grid>
         </Container>
       </Box>
-
-      {/* Footer */}
-      <Box sx={{ bgcolor: '#001f4d', color: 'white', py: 6 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4}>
-            <Grid size={{xs: 12, md: 4 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                TACC
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                123 Automation Way
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                Tech City, TC 45678
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 1 }}>
-                Email:  info@tacc.com   
-                </Typography>
-                <Typography variant="body2">Phone:  (123) 456-7890 </Typography>
-            </Grid>
-            <Grid size={{xs: 12, md: 4 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Quick Links
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                <Link href="#" color="inherit" underline="hover" sx={{ fontSize: '0.9rem' }}>
-                  Home
-                </Link>
-                <Link href="#" color="inherit" underline="hover" sx={{ fontSize: '0.9rem' }}>
-                  Services
-                </Link>
-                <Link href="#" color="inherit" underline="hover" sx={{ fontSize: '0.9rem' }}>
-                  About Us
-                </Link>
-                <Link href="#" color="inherit" underline="hover" sx={{ fontSize: '0.9rem' }}>
-                  Contact
-                </Link>
-              </Box>
-            </Grid>
-            <Grid size={{xs: 12, md: 4 }}>
-              <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-                Subscribe to Our Newsletter
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2 }}>
-                Get the latest updates on our services and industry news.
-              </Typography>
-              <Box component="form" sx={{ display: 'flex', gap: 1 }}>
-                <TextField
-                  variant="filled"
-                  size="small"
-                  placeholder="Your email address"
-                  sx={{
-                    bgcolor: 'white',
-                    borderRadius: 1,
-                    flex: 1,
-                    '& .MuiFilledInput-root': {
-                      bgcolor: 'white',
-                    },
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  sx={{
-                    background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
-                    textTransform: 'none',
-                    px: 3,
-                    borderRadius: '50px',
-                  }}
-                >
-                  Subscribe
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-          <Typography variant="body2" sx={{ textAlign: 'center', mt: 4, opacity: 0.7 }}>
-            &copy; {new Date().getFullYear()} TACC. All rights reserved.
-          </Typography>
-        </Container>
-      </Box>
     </Box>
+    </DefaultLayout>
   );
 }
