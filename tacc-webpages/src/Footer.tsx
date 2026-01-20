@@ -27,7 +27,11 @@ const Footer = () => {
                 Services
               </Typography>
               <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['PLC Programming', 'SCADA Training', 'IIoT Courses', 'System Integration'].map((item) => (
+                {[
+                  'PLC Programming', 
+                  'SCADA Training', 
+                  'IIoT Courses', 
+                  'System Integration'].map((item) => (
                   <li key={item}>
                     <Button
                       sx={{
