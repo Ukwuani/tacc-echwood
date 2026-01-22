@@ -44,6 +44,7 @@ import {
   LocalShipping,
 } from '@mui/icons-material';
 import DefaultLayout from '../src/DefaultLayout';
+import Head from 'next/head';
 
 export default function SystemIntegrationPage() {
   const services = [
@@ -288,6 +289,24 @@ export default function SystemIntegrationPage() {
   ];
 
   return (
+    <>
+      <Head>
+      <meta name="viewport" content="initial-scale=1, width=device-width" /> 
+      <title>Industrial Automation System Integrator | PLC, SCADA & IIoT</title>
+      <meta name="description" content="Certified industrial automation system integrator delivering PLC, SCADA, IIoT and smart manufacturing solutions. "/>
+      <meta name="keywords" content="PLC training, SCADA courses, industrial automation, IIoT training, Industry 4.0, system integration, automation consulting, PLC programming, Modbus, OPC UA, MQTT, MES systems"/>
+      <meta name="author" content="TACC - The Automation Control Circle"/>
+      
+      {/* Open Graph */}
+      <meta property="og:title" content="Industrial Automation System Integrator | PLC, SCADA & IIoT"/>
+      <meta property="og:description" content="Certified industrial automation system integrator delivering PLC, SCADA, IIoT and smart manufacturing solutions."/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content="https://automationcc.com/system-integrator" />
+      <link rel="canonical" href="https://automationcc.com/system-integrator"/>
+      {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+   
+    </Head>
     <DefaultLayout page="Services">
     <Box sx={{ bgcolor: '#fafafa', minHeight: '100vh' }}>
 
@@ -839,5 +858,6 @@ export default function SystemIntegrationPage() {
       </Box>
     </Box>
     </DefaultLayout>
+    </>
   );
 }
