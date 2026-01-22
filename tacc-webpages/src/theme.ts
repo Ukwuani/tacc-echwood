@@ -27,7 +27,20 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: inter.style.fontFamily,
+    h1: {
+      fontSize: 60,
+    }
   },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          h3: 'h1',
+          h2: 'h1',
+        },
+      },
+    },
+  }
 });
 
 export default theme;
