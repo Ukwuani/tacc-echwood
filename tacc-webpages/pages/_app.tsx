@@ -22,6 +22,8 @@ export default function MyApp(props: AppProps) {
         <meta property="og:title" content="Industrial Automation Training & System Integration | TACC"/>
         <meta property="og:description" content="Master industrial automation with expert-led PLC, SCADA, and IIoT training. Professional system integration and consulting services."/>
         <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://automationcc.com/"/>
+        <meta property="og:image" content="https://automationcc.com/imgs/tacc.png"/>
         <link rel="canonical" href="https://tacc.echwood.com/"/>
       </Head>
       <ThemeProvider theme={theme}>
