@@ -1,5 +1,7 @@
 import { GetServerSideProps } from "next";
 
+export const runtime = 'edge';
+
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const pages = [
     "",
