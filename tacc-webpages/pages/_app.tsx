@@ -14,6 +14,7 @@ export default function MyApp(props: AppProps) {
   return (
     <AppCacheProvider {...props}>
       <Head>
+        <link rel="icon" href="/fav-icon.ico" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <title>Industrial Automation Training & System Integration | The Automation Control Center - PLC, SCADA, IIoT Courses</title>
         <meta name="description" content="Master industrial automation with TACC. Expert PLC programming courses, SCADA training, IIoT solutions, system integration services, and Industry 4.0 consulting. Get certified by industry professionals."/>

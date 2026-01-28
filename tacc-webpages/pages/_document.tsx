@@ -14,7 +14,7 @@ export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps)
       <Head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/fav-icon.ico" />
         <meta name="emotion-insertion-point" content="" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <title>Industrial Automation Training & System Integration | The Automation Control Center - PLC, SCADA, IIoT Courses</title>
