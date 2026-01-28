@@ -14,6 +14,7 @@ export default function VideoPlayer() {
     >
       
       <source src="https://res.cloudinary.com/echwood/video/upload/v1768722643/tacc_eukisc.mp4" type="video/mp4" />
+      <meta itemProp="thumbnail" content="/imgs/tacc.png"/>
       Your browser does not support the video tag.
     </video>
   );

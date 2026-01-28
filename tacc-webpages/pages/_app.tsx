@@ -24,7 +24,7 @@ export default function MyApp(props: AppProps) {
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="https://automationcc.com/"/>
         <meta property="og:image" content="https://automationcc.com/imgs/tacc.png"/>
-        <link rel="canonical" href="https://tacc.echwood.com/"/>
+        <link rel="canonical" href="https://automationcc.com/"/>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
