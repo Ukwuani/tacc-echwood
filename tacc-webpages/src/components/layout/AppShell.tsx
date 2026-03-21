@@ -54,13 +54,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Logo */}
       <Box sx={{ px: 3, py: 2.5, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-        <img src="imgs/tacc.jpeg" alt="LearnFlow" style={{
+        <img src="imgs/tacc.jpeg" alt="TACC" style={{
           width: 38, height: 38, borderRadius: 2,
           background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           color: '#fff', fontWeight: 800, fontSize: 18, boxShadow: '0 4px 14px rgba(85,108,214,0.4)',
         }}></img>
-        <Typography variant="h6" fontWeight={700} color="primary">LearnFlow</Typography>
+        <Typography variant="h6" fontWeight={700} color="primary">TACC</Typography>
       </Box>
       <Divider sx={{ mx: 2 }} />
 
