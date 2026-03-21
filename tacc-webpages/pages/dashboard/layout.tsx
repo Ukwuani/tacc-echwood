@@ -1,10 +1,7 @@
 // import type { Metadata } from 'next';
 import ThemeRegistry from '@/components/layout/ThemeRegistry';
 
-// export const metadata: Metadata = {
-//   title: 'LearnFlow — Student Dashboard',
-//   description: 'Your personal e-learning hub',
-// };
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
