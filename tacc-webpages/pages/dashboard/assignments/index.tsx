@@ -72,7 +72,7 @@ export default function AssignmentsPage() {
           { label: 'Overdue', value: counts.overdue, color: 'error.main', bg: 'error.main' + '10' },
           { label: 'Avg Grade', value: avgGrade() != null ? `${avgGrade()}%` : '—', color: 'success.main', bg: 'success.main' + '10' },
         ].map(s => (
-          <Grid key={s.label}xs={6} sm={3}>
+          <Grid key={s.label} size={{ xs: 6, sm: 3 }}>
             <Card>
               <CardContent sx={{ p: 2, textAlign: 'center' }}>
                 <Typography variant="h4" fontWeight={800} color={s.color}>
