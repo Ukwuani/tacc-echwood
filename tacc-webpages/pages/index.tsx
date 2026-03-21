@@ -236,7 +236,7 @@ export default function TACCHomePage() {
             "@type": "Organization",
             name: "AutomationCC",
             url: "https://automationcc.com",
-            logo: "https://automationcc.com/logo.png",
+            logo: "https://automationcc.com/imgs/tacc.jpeg",
             sameAs: [
               "https://www.linkedin.com/company/control-circle",
             ],
