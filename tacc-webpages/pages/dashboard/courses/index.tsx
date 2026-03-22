@@ -10,7 +10,7 @@ import PageHeader from '@/components/shared/PageHeader';
 import CourseCard from '@/components/courses/CourseCard';
 import CourseScheduleModal from '@/components/calendar/CourseScheduleModal';
 import EmptyState from '@/components/shared/EmptyState';
-import { fetchCourses } from '@/lib/data';
+import { fetchEnrolledCourses, getUserProfile } from '@/lib/data';
 import type { Course } from '@/types/Course';
 
 export default function CoursesPage() {
@@ -22,7 +22,11 @@ export default function CoursesPage() {
   const [modalCourse, setModalCourse] = useState<Course | null>(null);
 
   useEffect(() => {
-    fetchCourses().then(data => { setCourses(data); setLoading(false); });
+    getUserProfile().then(profile => {
+      if (profile?.id) 
+        fetchEnrolledCourses(profile?.id).then(data => { setCourses(data); setLoading(false); });
+    })
+    
   }, []);
 
   const filtered = courses
