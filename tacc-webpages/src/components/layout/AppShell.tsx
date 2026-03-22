@@ -54,7 +54,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Logo */}
       <Box sx={{ px: 3, py: 2.5, display: 'flex', alignItems: 'center', gap: 1.5 }}>
-        <img src="imgs/tacc.jpeg" alt="TACC" style={{
+        <img src="/imgs/tacc.jpeg" alt="TACC" style={{
           width: 38, height: 38, borderRadius: 2,
           background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
