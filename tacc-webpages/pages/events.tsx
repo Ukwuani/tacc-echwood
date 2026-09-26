@@ -23,7 +23,7 @@ export default function Events() {
 
 
       {/* Embedded Reg Form */}
-     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeRU7Tm-W9z7ka0PwozBXeCeweUEegr7VcyXYjH-7CuUJRUsA/viewform?embedded=true" width="640" height="1533" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeRU7Tm-W9z7ka0PwozBXeCeweUEegr7VcyXYjH-7CuUJRUsA/viewform?embedded=true" width="640" height="1533" frameBorder="0" marginHeight={0} marginWidth={0} style={{ maxWidth: "100%" }}>Loading…</iframe>
 
 
     </Container>
