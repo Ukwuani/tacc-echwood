@@ -37,6 +37,7 @@ export default function TACCHomePage() {
     {
       icon: <School sx={{ fontSize: 40 }} />,
       title: 'Courses & Staff Training',
+      link: '/courses',
       description: 'Comprehensive training programs designed for engineers, technicians, and teams looking to excel in industrial automation.',
       features: [
         'PLC Programming Track',
@@ -50,6 +51,7 @@ export default function TACCHomePage() {
     {
       icon: <Science sx={{ fontSize: 40 }} />,
       title: 'Research & Development',
+      link: '/contact-us',
       description: 'Leading-edge research in automation technologies, AI integration, and smart manufacturing solutions.',
       features: [
         'AI & Machine Learning in Automation',
@@ -63,6 +65,7 @@ export default function TACCHomePage() {
     {
       icon: <Settings sx={{ fontSize: 40 }} />,
       title: 'System Integration & Consulting',
+      link: '/system-integrator',
       description: 'End-to-end system integration services and expert consulting to optimize your industrial operations.',
       features: [
         'SCADA/MES Implementation',
@@ -76,6 +79,7 @@ export default function TACCHomePage() {
     {
       icon: <VideoCall sx={{ fontSize: 40 }} />,
       title: 'Webinars & Workshops',
+      link: '/events',
       description: 'Interactive online sessions with industry experts covering the latest trends and technologies in automation.',
       features: [
         'Live Expert Sessions',
@@ -282,6 +286,7 @@ export default function TACCHomePage() {
                 <Button
                   variant="contained"
                   size="large"
+                  href="/system-integrator"
                   sx={{
                     background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
                     borderRadius: '50px',
@@ -296,6 +301,7 @@ export default function TACCHomePage() {
                 <Button
                   variant="outlined"
                   size="large"
+                  href="/contact-us"
                   sx={{
                     borderRadius: '50px',
                     px: 4,
@@ -402,6 +408,7 @@ export default function TACCHomePage() {
                     ))}
                   </Box>
                   <Button
+                    href={service.link}
                     sx={{
                       mt: 2,
                       color: '#0066ff',
@@ -638,6 +645,7 @@ export default function TACCHomePage() {
           <Button
             variant="contained"
             size="large"
+            href="/courses"
             sx={{
               background: 'linear-gradient(135deg, #0066ff, #00c9ff)',
               borderRadius: '50px',

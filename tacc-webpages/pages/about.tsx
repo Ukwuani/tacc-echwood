@@ -587,6 +587,7 @@ export default function AboutUsPage() {
             <Button
               variant="contained"
               size="large"
+              href="/courses"
               sx={{
                 bgcolor: 'white',
                 color: '#0066ff',
@@ -606,6 +607,7 @@ export default function AboutUsPage() {
             <Button
               variant="outlined"
               size="large"
+              href="/contact-us"
               sx={{
                 borderColor: 'white',
                 color: 'white',

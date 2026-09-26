@@ -28,12 +28,14 @@ const Footer = () => {
               </Typography>
               <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
                 {[
-                  'PLC Programming', 
-                  'SCADA Training', 
-                  'IIoT Courses', 
-                  'System Integration'].map((item) => (
-                  <li key={item}>
+                  { label: 'PLC Programming', href: '/courses' },
+                  { label: 'SCADA Training', href: '/courses' },
+                  { label: 'IIoT Courses', href: '/courses' },
+                  { label: 'System Integration', href: '/system-integrator' },
+                ].map((item) => (
+                  <li key={item.label}>
                     <Button
+                      href={item.href}
                       sx={{
                         color: 'text.secondary',
                         textTransform: 'none',
@@ -42,7 +44,7 @@ const Footer = () => {
                         '&:hover': { color: '#0066ff' },
                       }}
                     >
-                      {item}
+                      {item.label}
                     </Button>
                   </li>
                 ))}
@@ -53,9 +55,15 @@ const Footer = () => {
                 Company
               </Typography>
               <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['About Us', 'Careers', 'Blog', 'Contact'].map((item) => (
-                  <li key={item}>
+                {[
+                  { label: 'About Us', href: '/about' },
+                  { label: 'Careers', href: 'https://ng.linkedin.com/company/control-circle' },
+                  { label: 'Events', href: '/events' },
+                  { label: 'Contact', href: '/contact-us' },
+                ].map((item) => (
+                  <li key={item.label}>
                     <Button
+                      href={item.href}
                       sx={{
                         color: 'text.secondary',
                         textTransform: 'none',
@@ -64,7 +72,7 @@ const Footer = () => {
                         '&:hover': { color: '#0066ff' },
                       }}
                     >
-                      {item}
+                      {item.label}
                     </Button>
                   </li>
                 ))}
@@ -75,9 +83,15 @@ const Footer = () => {
                 Resources
               </Typography>
               <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
-                {['Documentation', 'Tutorials', 'Community', 'Support'].map((item) => (
-                  <li key={item}>
+                {[
+                  { label: 'Ignition Modules', href: '/ignition-modules' },
+                  { label: 'Tutorials', href: '/courses' },
+                  { label: 'Community', href: 'https://www.linkedin.com/company/control-circle' },
+                  { label: 'Support', href: '/contact-us' },
+                ].map((item) => (
+                  <li key={item.label}>
                     <Button
+                      href={item.href}
                       sx={{
                         color: 'text.secondary',
                         textTransform: 'none',
@@ -86,7 +100,7 @@ const Footer = () => {
                         '&:hover': { color: '#0066ff' },
                       }}
                     >
-                      {item}
+                      {item.label}
                     </Button>
                   </li>
                 ))}

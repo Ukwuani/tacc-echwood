@@ -330,6 +330,7 @@ export default function SystemIntegrationPage() {
             <Button
               variant="contained"
               size="large"
+              href="/contact-us"
               sx={{
                 bgcolor: 'white',
                 color: '#0066ff',
@@ -349,6 +350,7 @@ export default function SystemIntegrationPage() {
             <Button
               variant="outlined"
               size="large"
+              href="/contact-us"
               sx={{
                 borderColor: 'white',
                 color: 'white',
@@ -586,6 +588,7 @@ export default function SystemIntegrationPage() {
                   <Button
                     variant={pkg.highlighted ? 'contained' : 'outlined'}
                     fullWidth
+                    href="/contact-us"
                     sx={{
                       mt: 3,
                       borderRadius: '50px',

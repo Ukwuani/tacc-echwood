@@ -36,6 +36,7 @@ export default function AppNavBar({ selectedPage }: AppNavBarProps) {
       title: " Services",
       href: "/system-integrator",
     },
+    { title: "Modules", href: "/ignition-modules" },
     {
       title: "Career",
       href: "https://ng.linkedin.com/company/control-circle",
