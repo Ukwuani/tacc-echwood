@@ -29,6 +29,7 @@ type IgnitionModule = {
   description: string;
   features: string[];
   downloadUrl: string;
+  sourceUrl: string;
   fileName: string;
 };
 
@@ -36,7 +37,7 @@ const modules: IgnitionModule[] = [
   {
     slug: 'git-auto-push',
     name: 'Git Auto Push',
-    version: '1.0.0',
+    version: '0.1.0',
     ignitionVersion: '8.1+',
     tagline: 'Automatic Git version control for your Ignition projects.',
     description:
@@ -52,8 +53,9 @@ const modules: IgnitionModule[] = [
       'Configurable branch and remote from the Gateway web interface',
       'SSH key and HTTPS token authentication',
     ],
-    downloadUrl: '/downloads/git-auto-push.modl',
-    fileName: 'Git-Auto-Push.modl',
+    downloadUrl: 'https://github.com/Ukwuani/git-ignition-module-automationcc/releases/download/v0.1.0/Git-Auto-Push-By-AutomationCC.modl',
+    sourceUrl: 'https://github.com/Ukwuani/git-ignition-module-automationcc/blob/main/Git-Auto-Push-By-AutomationCC.modl',
+    fileName: 'Git-Auto-Push-By-AutomationCC.modl',
   },
 ];
 
@@ -152,17 +154,30 @@ function ModuleCard({ module }: { module: IgnitionModule }) {
           <Typography color="text.secondary">
             <strong>{count === null ? '—' : count.toLocaleString()}</strong> downloads
           </Typography>
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<CloudDownload />}
-            href={module.downloadUrl}
-            download={module.fileName}
-            onClick={handleDownload}
-            sx={{ borderRadius: '50px', px: 5, py: 1.5, textTransform: 'none', fontWeight: 600 }}
-          >
-            Download .modl
-          </Button>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+            <Button
+              variant="outlined"
+              size="large"
+              startIcon={<GitHub />}
+              href={module.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ borderRadius: '50px', px: 4, py: 1.5, textTransform: 'none', fontWeight: 600 }}
+            >
+              View on GitHub
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<CloudDownload />}
+              href={module.downloadUrl}
+              download={module.fileName}
+              onClick={handleDownload}
+              sx={{ borderRadius: '50px', px: 5, py: 1.5, textTransform: 'none', fontWeight: 600 }}
+            >
+              Download .modl
+            </Button>
+          </Stack>
         </Stack>
       </CardContent>
     </Card>
