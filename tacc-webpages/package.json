@@ -8,10 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "pages:build": "npx @cloudflare/next-on-pages@1"
   },
   "dependencies": {
     "@emotion/cache": "latest",
@@ -21,7 +18,6 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.3.2",
     "@mui/material-nextjs": "latest",
-    "@opennextjs/cloudflare": "^1.20.6",
     "@paystack/inline-js": "^2.22.7",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/supabase-js": "^2.58.0",
@@ -37,7 +33,6 @@
     "@types/react": "^19.0.0",
     "eslint": "latest",
     "eslint-config-next": "^15.5.26",
-    "typescript": "latest",
-    "wrangler": "^4.141.0"
+    "typescript": "latest"
   }
 }
