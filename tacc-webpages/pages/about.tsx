@@ -56,7 +56,7 @@ export default function AboutUsPage() {
 
   const team = [
     {
-      name: 'Michael Echefu',
+      name: 'M. Chef',
       role: 'Chairman & CEO',
       expertise: 'Industry Expert',
       bio: '20+ years of experience in the industry across manufacturing, and process industries. ',
